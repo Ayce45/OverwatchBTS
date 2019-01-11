@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?><!--*- coding: utf-8 -*-->
+<rapla:data xmlns:rapla="http://rapla.sourceforge.net/rapla"
+ xmlns:relax="http://relaxng.org/ns/structure/1.0"
+ xmlns:dynatt="http://rapla.sourceforge.net/dynamictype"
+ xmlns:ext="http://rapla.sourceforge.net/extension"
+ xmlns:doc="http://rapla.sourceforge.net/annotation"
+ version="1.2">
+   <rapla:categories>
+      <rapla:category created-at="2019-01-11T15:31:46.0561Z" last-changed="2019-01-11T15:31:46.0561Z" id="cb9fd28a-fa66-4721-aa92-b4ee337e054c" key="user-groups">
+         <doc:name lang="en">user-groups</doc:name>
+         <doc:name lang="fr">Groupes d'utilisateurs</doc:name>
+         <rapla:category created-at="2019-01-11T15:31:46.0561Z" last-changed="2019-01-11T15:31:46.0561Z" id="c046e019-a84f-44ad-ad18-e4c34b6ea614" key="read-events-from-others">
+            <doc:name lang="en">read-events-from-others</doc:name>
+            <doc:name lang="fr">Voir les événements d'autres utilisateurs</doc:name>
+         </rapla:category>
+         <rapla:category created-at="2019-01-11T15:31:46.0561Z" last-changed="2019-01-11T15:31:46.0561Z" id="ce5b13d2-4d7c-405d-abb4-0030a1bb4e95" key="create-events">
+            <doc:name lang="en">create-events</doc:name>
+            <doc:name lang="fr">Créer des événements</doc:name>
+         </rapla:category>
+      </rapla:category>
+   </rapla:categories>
+
+   <relax:grammar>
+      <relax:define name="resource">
+         <relax:element name="dynatt:resource" id="d550f83a-5470-416b-ace4-4242abed00dd" created-at="2019-01-11T15:31:46.0593Z" last-changed="2019-01-11T15:31:46.0593Z">
+            <doc:name lang="en">resource</doc:name>
+            <doc:name lang="fr">Ressource</doc:name>
+            <doc:annotations>
+               <rapla:annotation key="nameformat">{name}</rapla:annotation>
+               <rapla:annotation key="classification-type">resource</rapla:annotation>
+               <rapla:annotation key="colors">automatic</rapla:annotation>
+            </doc:annotations>
+            <relax:element name="name">
+               <doc:name lang="en">name</doc:name>
+               <doc:name lang="fr">Nom</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <rapla:permission access="read_type"/>
+            <rapla:permission access="allocate_conflicts"/>
+         </relax:element>
+      </relax:define>
+
+      <relax:define name="person">
+         <relax:element name="dynatt:person" id="d478d207-0e7a-4380-b2b6-129006222790" created-at="2019-01-11T15:31:46.0593Z" last-changed="2019-01-11T15:31:46.0593Z">
+            <doc:name lang="en">person</doc:name>
+            <doc:name lang="fr">Personne</doc:name>
+            <doc:annotations>
+               <rapla:annotation key="nameformat">{surname} {firstname}</rapla:annotation>
+               <rapla:annotation key="classification-type">person</rapla:annotation>
+            </doc:annotations>
+            <relax:element name="surname">
+               <doc:name lang="en">surname</doc:name>
+               <doc:name lang="fr">Nom</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <relax:element name="firstname">
+               <doc:name lang="en">firstname</doc:name>
+               <doc:name lang="fr">Prénom</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <relax:element name="email">
+               <doc:name lang="en">email</doc:name>
+               <doc:name lang="fr">Email</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <rapla:permission access="read_type"/>
+            <rapla:permission access="allocate_conflicts"/>
+         </relax:element>
+      </relax:define>
+
+      <relax:define name="event">
+         <relax:element name="dynatt:event" id="dfb29764-dd6a-4e77-a18d-6fdebfecd571" created-at="2019-01-11T15:31:46.0593Z" last-changed="2019-01-11T15:31:46.0593Z">
+            <doc:name lang="en">event</doc:name>
+            <doc:name lang="fr">Événement</doc:name>
+            <doc:annotations>
+               <rapla:annotation key="nameformat">{name}</rapla:annotation>
+               <rapla:annotation key="classification-type">reservation</rapla:annotation>
+            </doc:annotations>
+            <relax:element name="name">
+               <doc:name lang="en">eventname</doc:name>
+               <doc:name lang="fr">Nom de l'événement</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <rapla:permission access="read_type"/>
+            <rapla:permission group="category[key='read-events-from-others']" access="read"/>
+            <rapla:permission group="category[key='create-events']" access="create"/>
+         </relax:element>
+      </relax:define>
+
+      <relax:start>
+         <relax:choice>
+            <relax:ref name="resource"/>
+            <relax:ref name="person"/>
+            <relax:ref name="event"/>
+         </relax:choice>
+      </relax:start>
+   </relax:grammar>
+
+   <rapla:preferences>
+      <rapla:entry key="org.rapla.plugin.abstractcalendar.only_own_reservations" value="false"/>
+      <rapla:entry key="org.rapla.crypto.server.privateKey" value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCScEtAmm8EsPcKvkM9ApDHNEPS4_Ejms9VH54IvhzrIULJUFooFahlcmiPV8mTYZorQU84wl56BySAONoHlBTKPLUz8TeHQfqhDFOLryliBn3QlR2t4kiOnF9loiiglHx8Xy4wacPczgUCk5vMI7hIENxY3r_7xzDHiD4p_OKvgR34ymx7BitD5BeTqM0avcmPpthpPARlUCcqzAx_00R-xa6tVO7WbPwSK-suKv7g84prQVpQBsktFUZHtZo8CkaDn8SWXSaMnZ3yYyPXGhO2hX6Fi8G5ulduL8N2BpTNvEoCtgzkiysYwZYbeOrpGK6P7gx5OJV01QyrTRy5SPrLAgMBAAECggEBAIS3iTwvutZBnGP8M-wjWxtvXtjPBUkDkUzQruW1h3gCWQki7dLObiQjIGhpY6NTHep98lK6te1ac9ZRsCiWKJFxm7hLscvAHGnBRiaexZ61y2ky_AcPwjqdtkfiQ3flmz0M9kuiT4TaoufG57iH1whZX5qbptuFl8v-yng7XSc5Ou0Esy-Nk-Q0wKWwXO0AHy50b0O7joHdHrPxA7kLHlRu-eIucL2cVVpU4z-_izifO-o_hu3EixdRdV2lXkATSB89bwFjp_ESnDEhQiyZUapjEEhQFhUm_GxaXQ_hdNGI3aWMCdRGnJ4atEKRYp7Fgwdb0XD-Fgkuo-HvBOJ6feECgYEAxZUeneSOBST0R_qx6GkdRyzu5IDnw5_GHbt2p0sV0AudSUGUUfeOSiQCsehR03kuYcNZHNm_rvkPtEsm0vlFgNzwky_pQTXifE8RpLWjxWWnJR4m2pDu8xWUWFUlCvOFtiJwY5fnFtTxkR0KYEkSCEhEXTgeOw2GKctd_0_E_KUCgYEAvbwh3ftxJtq_uWqD0iMzdtLVVwVVDbwGMs6Ncdn5rXt_FlXFDFQQdGxH4yNSRO_5ewX0eb7YFsF5soo53uh-BHJEcvhGuILWc6IxBN9QSA8YDte2a_AsSt4wheSQWe3O3TA1Lq-C_cfS59o4YoYPx3JEtIa8-_tmEdoTvPsuTq8CgYA-b98a-iy_B2yCioBJ912fLl3Xq7yRnx3WK3VVbG7aLbFogubB-D7owvRvEAE7mKHFlxvD-DOQsXf6-3yrUsZZ8He9q3hEeSi3K61hpVy5dmQZYKvaic5Y1sroFw_7o_TvF3b4ofoOxwAHYWvz_WNLZrrj0mYLNzzcXD25_pU7WQKBgFnBlRfpKhciZo51WBThuCffBzOafyj3KMuCMSGJ53ZtNKrBOm1hm0MoMj2-aN3Z1GChaYzqflkNf9-5SjUsMOkzkTP-RZ5lrsOXF69hYR4lndDvtQmM3bcxMy0z-iHAwRqcApyqRMJ_dENgVUoud2p3oQ7xqpddz2RkkO_Wt4pbAoGATJoCvQSr-RqNqWL6fofiqNeUxnKwb0DcnIuFB7U69FxKK3dQGgE3tHvdwF1sW3SNJyvBC0uPyFSigt1NhPsJscb9zxMS8BmP-nHiIRB7Ht7tN-OUq_5zJsE3yfW78PRv46S5QWmkctPQq0iYQLqPwZD9yO2YMUjk6XzK701oQ_U"/>
+      <rapla:entry key="org.rapla.crypto.publicKey" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAknBLQJpvBLD3Cr5DPQKQxzRD0uPxI5rPVR-eCL4c6yFCyVBaKBWoZXJoj1fJk2GaK0FPOMJeegckgDjaB5QUyjy1M_E3h0H6oQxTi68pYgZ90JUdreJIjpxfZaIooJR8fF8uMGnD3M4FApObzCO4SBDcWN6_-8cwx4g-Kfzir4Ed-MpsewYrQ-QXk6jNGr3Jj6bYaTwEZVAnKswMf9NEfsWurVTu1mz8EivrLir-4POKa0FaUAbJLRVGR7WaPApGg5_Ell0mjJ2d8mMj1xoTtoV-hYvBubpXbi_DdgaUzbxKArYM5IsrGMGWG3jq6Riuj-4MeTiVdNUMq00cuUj6ywIDAQAB"/>
+   </rapla:preferences>
+
+   <rapla:users>
+      <!-- Users of the system -->
+      <rapla:user id="uac32385-74a8-4fa0-9c13-ea0773aaa249" created-at="2019-01-11T15:31:46.0561Z" last-changed="2019-01-11T15:31:46.0561Z" username="admin" password="" name="" email="" isAdmin="true">
+      </rapla:user>
+   </rapla:users>
+
+   <rapla:resources>
+      <!-- resources -->
+      <rapla:resource id="r587c6e5-b670-4729-b830-5040667e52b7" owner="uac32385-74a8-4fa0-9c13-ea0773aaa249" created-at="2019-01-11T15:31:46.0561Z" last-changed="2019-01-11T15:31:46.0561Z">
+         <dynatt:resource>
+            <dynatt:name>test</dynatt:name>
+         </dynatt:resource>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+
+   </rapla:resources>
+
+   <rapla:reservations>
+   </rapla:reservations>
+
+</rapla:data>
