@@ -1,0 +1,1680 @@
+<?xml version="1.0" encoding="utf-8"?><!--*- coding: utf-8 -*-->
+<rapla:data xmlns:rapla="http://rapla.sourceforge.net/rapla"
+ xmlns:relax="http://relaxng.org/ns/structure/1.0"
+ xmlns:dynatt="http://rapla.sourceforge.net/dynamictype"
+ xmlns:ext="http://rapla.sourceforge.net/extension"
+ xmlns:doc="http://rapla.sourceforge.net/annotation"
+ version="1.2">
+   <rapla:categories>
+      <rapla:category created-at="2019-01-09T12:37:12.0121Z" last-changed="2019-01-09T12:37:12.0121Z" id="c02f33eb-3032-4319-8e64-fa0ee5c0dd25" key="user-groups">
+         <doc:name lang="en">user-groups</doc:name>
+         <doc:name lang="fr">Groupes d'utilisateurs</doc:name>
+         <rapla:category created-at="2019-01-09T12:37:12.0121Z" last-changed="2019-01-09T12:37:12.0121Z" id="cb53ab5d-81cc-4180-9dfa-b129762adad0" key="read-events-from-others">
+            <doc:name lang="en">read-events-from-others</doc:name>
+            <doc:name lang="fr">Voir les événements d'autres utilisateurs</doc:name>
+         </rapla:category>
+         <rapla:category created-at="2019-01-09T12:37:12.0121Z" last-changed="2019-01-09T12:37:12.0121Z" id="cc1d3eea-a0e7-4da9-a6e6-d2c3836fbebf" key="create-events">
+            <doc:name lang="en">create-events</doc:name>
+            <doc:name lang="fr">Créer des événements</doc:name>
+         </rapla:category>
+      </rapla:category>
+   </rapla:categories>
+
+   <relax:grammar>
+      <relax:define name="prof">
+         <relax:element name="dynatt:prof" id="d1c6dbea-6afe-4c10-abae-6508dbc73bdd" created-at="2019-01-09T12:37:12.0246Z" last-changed="2019-01-10T13:13:57.0589Z">
+            <doc:name lang="en">person</doc:name>
+            <doc:name lang="fr">Professeur</doc:name>
+            <doc:annotations>
+               <rapla:annotation key="nameformat">{surname} {firstname}</rapla:annotation>
+               <rapla:annotation key="classification-type">person</rapla:annotation>
+               <rapla:annotation key="colors">rapla:automated</rapla:annotation>
+            </doc:annotations>
+            <relax:element name="surname">
+               <doc:name lang="en">surname</doc:name>
+               <doc:name lang="fr">Nom</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <relax:element name="firstname">
+               <doc:name lang="en">firstname</doc:name>
+               <doc:name lang="fr">Prénom</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <relax:element name="email">
+               <doc:name lang="en">email</doc:name>
+               <doc:name lang="fr">Email</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <relax:element name="classe">
+               <doc:name lang="fr">Classe</doc:name>
+               <relax:data type="rapla:allocatable"/>
+               <rapla:constraint name="dynamic-type">resource2</rapla:constraint>
+               <rapla:constraint name="multi-select">true</rapla:constraint>
+            </relax:element>
+            <rapla:permission access="read_type"/>
+            <rapla:permission access="allocate_conflicts"/>
+         </relax:element>
+      </relax:define>
+
+      <relax:define name="exam">
+         <relax:element name="dynatt:exam" id="dd26816c-bd68-47e6-865a-b17b21892551" created-at="2019-01-09T12:37:12.0246Z" last-changed="2019-01-09T14:51:02.0382Z">
+            <doc:name lang="en">event</doc:name>
+            <doc:name lang="fr">Examen</doc:name>
+            <doc:annotations>
+               <rapla:annotation key="nameformat">{name}</rapla:annotation>
+               <rapla:annotation key="classification-type">reservation</rapla:annotation>
+               <rapla:annotation key="colors">rapla:automated</rapla:annotation>
+            </doc:annotations>
+            <relax:element name="name">
+               <doc:name lang="en">eventname</doc:name>
+               <doc:name lang="fr">Nom de l'examen</doc:name>
+               <relax:data type="string"/>
+               <rapla:default></rapla:default>
+            </relax:element>
+            <rapla:permission access="read_type"/>
+            <rapla:permission group="category[key='read-events-from-others']" access="read"/>
+            <rapla:permission group="category[key='create-events']" access="create"/>
+         </relax:element>
+      </relax:define>
+
+      <relax:define name="resource1">
+         <relax:element name="dynatt:resource1" id="db5b7b73-2ae4-4d0c-8b1f-b3ebd277af09" created-at="2019-01-09T13:04:01.0418Z" last-changed="2019-01-10T13:15:08.0884Z">
+            <doc:name lang="fr">Salle</doc:name>
+            <doc:annotations>
+               <rapla:annotation key="nameformat">{name}</rapla:annotation>
+               <rapla:annotation key="classification-type">resource</rapla:annotation>
+               <rapla:annotation key="colors">rapla:automated</rapla:annotation>
+            </doc:annotations>
+            <relax:element name="name">
+               <doc:name lang="en">name</doc:name>
+               <doc:name lang="fr">Nom</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <relax:element name="capacite">
+               <doc:name lang="fr">Capacité</doc:name>
+               <relax:data type="int"/>
+            </relax:element>
+            <relax:element name="remarque">
+               <doc:name lang="fr">Remarque</doc:name>
+               <relax:data type="string"/>
+               <rapla:default></rapla:default>
+            </relax:element>
+            <rapla:permission access="read_type"/>
+            <rapla:permission access="allocate_conflicts"/>
+         </relax:element>
+      </relax:define>
+
+      <relax:define name="resource2">
+         <relax:element name="dynatt:resource2" id="d4d42316-5d18-4ece-9996-6cbdcbcd8666" created-at="2019-01-09T13:04:32.0667Z" last-changed="2019-01-09T15:00:25.0497Z">
+            <doc:name lang="fr">Classe</doc:name>
+            <doc:annotations>
+               <rapla:annotation key="nameformat">{name}</rapla:annotation>
+               <rapla:annotation key="classification-type">resource</rapla:annotation>
+               <rapla:annotation key="colors">rapla:automated</rapla:annotation>
+            </doc:annotations>
+            <relax:element name="name">
+               <doc:name lang="en">name</doc:name>
+               <doc:name lang="fr">Nom</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <relax:element name="nbeleves">
+               <doc:name lang="fr">Nombre d'élèves</doc:name>
+               <relax:data type="int"/>
+            </relax:element>
+            <rapla:permission access="read_type"/>
+            <rapla:permission access="allocate_conflicts"/>
+         </relax:element>
+      </relax:define>
+
+      <relax:define name="epreuve">
+         <relax:element name="dynatt:epreuve" id="d3841b31-c105-4689-aa91-eb9f5bc97400" created-at="2019-01-09T15:45:00.0628Z" last-changed="2019-01-10T13:06:32.0751Z">
+            <doc:name lang="fr">Epreuve</doc:name>
+            <doc:annotations>
+               <rapla:annotation key="nameformat">{name}</rapla:annotation>
+               <rapla:annotation key="classification-type">resource</rapla:annotation>
+               <rapla:annotation key="colors">rapla:automated</rapla:annotation>
+            </doc:annotations>
+            <relax:element name="name">
+               <doc:name lang="en">name</doc:name>
+               <doc:name lang="fr">Nom</doc:name>
+               <relax:data type="string"/>
+            </relax:element>
+            <relax:element name="coeff">
+               <doc:name lang="fr">Coeff</doc:name>
+               <relax:data type="int"/>
+            </relax:element>
+            <relax:element name="duree">
+               <doc:name lang="fr">Duree</doc:name>
+               <relax:data type="int"/>
+            </relax:element>
+            <relax:element name="remarque">
+               <doc:name lang="fr">Remarque</doc:name>
+               <relax:data type="string"/>
+               <rapla:default></rapla:default>
+            </relax:element>
+            <rapla:permission access="read_type"/>
+            <rapla:permission access="allocate_conflicts"/>
+         </relax:element>
+      </relax:define>
+
+      <relax:start>
+         <relax:choice>
+            <relax:ref name="prof"/>
+            <relax:ref name="exam"/>
+            <relax:ref name="resource1"/>
+            <relax:ref name="resource2"/>
+            <relax:ref name="epreuve"/>
+         </relax:choice>
+      </relax:start>
+   </relax:grammar>
+
+   <rapla:preferences>
+      <rapla:entry key="org.rapla.plugin.jndi.newusergroups">
+         <rapla:map>
+         </rapla:map>
+      </rapla:entry>
+      <rapla:entry key="org.rapla.plugin">
+         <rapla:config>
+            <org.rapla.plugin>
+               <plugin enabled="true" class="org.rapla.plugin.mail.MailPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.appointmentcounter.AppointmentCounterPlugin"/>
+               <plugin enabled="false" class="org.rapla.plugin.archiver.ArchiverPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.compactweekview.CompactWeekViewPlugin"/>
+               <plugin enabled="false" class="org.rapla.plugin.copyurl.CopyUrlPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.dayresource.DayResourceViewPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.defaultwizard.DefaultWizardPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.export2ical.Export2iCalPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.autoexport.AutoExportPlugin" show_calendar_list_in_html_menu="false"/>
+               <plugin enabled="false" class="org.rapla.plugin.ical.ImportFromICalPlugin"/>
+               <plugin enabled="false" class="org.rapla.plugin.jndi.JNDIPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.monthview.MonthViewPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.notification.NotificationPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.periodcopy.PeriodCopyPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.rightsreport.RightsReportPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.setowner.SetOwnerPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.tableview.internal.TableViewPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.tempatewizard.TempateWizardPlugin"/>
+               <plugin enabled="false" class="org.rapla.plugin.eventtimecalculator.EventTimeCalculatorPlugin">
+                  <interval_number>60</interval_number>
+                  <break_number>0</break_number>
+                  <time_unit>60</time_unit>
+                  <time_format>{0},{1}</time_format>
+                  <user_prefs>false</user_prefs>
+               </plugin>
+               <plugin enabled="false" class="org.rapla.plugin.timeslot.TimeslotPlugin"/>
+               <plugin enabled="false" class="org.rapla.plugin.urlencryption.UrlEncryptionPlugin"/>
+               <plugin enabled="true" class="org.rapla.plugin.weekview.WeekViewPlugin"/>
+            </org.rapla.plugin>
+         </rapla:config>
+      </rapla:entry>
+      <rapla:entry key="org.rapla.plugin.mail.server.Config">
+         <rapla:config>
+            <config>
+               <smtp-port>465</smtp-port>
+               <smtp-host>smtp.gmail.com</smtp-host>
+               <ssl>true</ssl>
+               <startTls>false</startTls>
+               <username>evan.jug@gmail.com</username>
+               <password>vpqiwmgzlqeyikra</password>
+            </config>
+         </rapla:config>
+      </rapla:entry>
+      <rapla:entry key="org.rapla.calendarview">
+         <rapla:config>
+            <calendar-options>
+               <color>reservations_and_resources</color>
+               <worktime>8-18</worktime>
+               <exceptions-visible>false</exceptions-visible>
+               <rows-per-hour>4</rows-per-hour>
+               <exclude-days>7,1</exclude-days>
+               <days-in-weekview>5</days-in-weekview>
+               <first-day-of-week>2</first-day-of-week>
+               <minimum-block-width>0</minimum-block-width>
+               <non-filtered-events>transparent</non-filtered-events>
+            </calendar-options>
+         </rapla:config>
+      </rapla:entry>
+      <rapla:entry key="org.rapla.plugin.export2ical.server.Config">
+         <rapla:config>
+            <config>
+               <days_before>100</days_before>
+               <days_after>400</days_after>
+               <global_interval>true</global_interval>
+               <last_modified_intervall>5</last_modified_intervall>
+               <export_attendees>false</export_attendees>
+               <export_attendees_email_attribute>email</export_attendees_email_attribute>
+               <export_attendees_participation_status>TENTATIVE</export_attendees_participation_status>
+            </config>
+         </rapla:config>
+      </rapla:entry>
+      <rapla:entry key="org.rapla.plugin.jndi.server.config">
+         <rapla:config>
+            <config connectionName="uid=admin,ou=system" connectionPassword="secret" connectionURL="ldap://localhost:10389" contextFactory="com.sun.jndi.ldap.LdapCtxFactory" userBase="dc=example,dc=com" userCn="cn" userMail="mail" userPassword="" userSearch="(uid={0})"/>
+         </rapla:config>
+      </rapla:entry>
+      <rapla:entry key="org.rapla.plugin.tableview.config">
+         <rapla:config>
+            <config>
+               <column>
+                  <key>name</key>
+                  <defaultValue>{p->name(p)}</defaultValue>
+                  <type>string</type>
+                  <name>
+                     <mapLocales>
+                        <entry>
+                           <key>cs</key>
+                           <value>Jméno</value>
+                        </entry>
+                        <entry>
+                           <key>en</key>
+                           <value>Name</value>
+                        </entry>
+                        <entry>
+                           <key>es</key>
+                           <value>Nombre</value>
+                        </entry>
+                        <entry>
+                           <key>fr</key>
+                           <value>Nom</value>
+                        </entry>
+                        <entry>
+                           <key>nl</key>
+                           <value>Naam</value>
+                        </entry>
+                        <entry>
+                           <key>pl</key>
+                           <value>Nazwa</value>
+                        </entry>
+                        <entry>
+                           <key>pt</key>
+                           <value>Nome</value>
+                        </entry>
+                     </mapLocales>
+                  </name>
+               </column>
+               <column>
+                  <key>start</key>
+                  <defaultValue>{p->start(p)}</defaultValue>
+                  <type>datetime</type>
+                  <name>
+                     <mapLocales>
+                        <entry>
+                           <key>cs</key>
+                           <value>Po�?áte�?ní datum</value>
+                        </entry>
+                        <entry>
+                           <key>de</key>
+                           <value>Beginn</value>
+                        </entry>
+                        <entry>
+                           <key>en</key>
+                           <value>start_date</value>
+                        </entry>
+                        <entry>
+                           <key>es</key>
+                           <value>Inicio</value>
+                        </entry>
+                        <entry>
+                           <key>fr</key>
+                           <value>Début</value>
+                        </entry>
+                        <entry>
+                           <key>pl</key>
+                           <value>Początek</value>
+                        </entry>
+                        <entry>
+                           <key>pt</key>
+                           <value>Início</value>
+                        </entry>
+                     </mapLocales>
+                  </name>
+               </column>
+               <column>
+                  <key>end</key>
+                  <defaultValue>{p->end(p)}</defaultValue>
+                  <type>datetime</type>
+                  <name>
+                     <mapLocales>
+                        <entry>
+                           <key>cs</key>
+                           <value>Konec</value>
+                        </entry>
+                        <entry>
+                           <key>de</key>
+                           <value>Ende</value>
+                        </entry>
+                        <entry>
+                           <key>en</key>
+                           <value>end_date</value>
+                        </entry>
+                        <entry>
+                           <key>es</key>
+                           <value>Fin</value>
+                        </entry>
+                        <entry>
+                           <key>fr</key>
+                           <value>Fin</value>
+                        </entry>
+                        <entry>
+                           <key>nl</key>
+                           <value>Einde</value>
+                        </entry>
+                        <entry>
+                           <key>pl</key>
+                           <value>Koniec</value>
+                        </entry>
+                        <entry>
+                           <key>pt</key>
+                           <value>Fim</value>
+                        </entry>
+                     </mapLocales>
+                  </name>
+               </column>
+               <column>
+                  <key>lastchanged</key>
+                  <defaultValue>{p->lastchanged(p)}</defaultValue>
+                  <type>datetime</type>
+                  <name>
+                     <mapLocales>
+                        <entry>
+                           <key>cs</key>
+                           <value>Naposledy změněno</value>
+                        </entry>
+                        <entry>
+                           <key>de</key>
+                           <value>zuletzt geändert am</value>
+                        </entry>
+                        <entry>
+                           <key>en</key>
+                           <value>last_changed</value>
+                        </entry>
+                        <entry>
+                           <key>es</key>
+                           <value>Última modificación el</value>
+                        </entry>
+                        <entry>
+                           <key>fr</key>
+                           <value>Dernière modification le</value>
+                        </entry>
+                        <entry>
+                           <key>nl</key>
+                           <value>Aangepast op</value>
+                        </entry>
+                        <entry>
+                           <key>pl</key>
+                           <value>Ostatnia zmiana</value>
+                        </entry>
+                        <entry>
+                           <key>pt</key>
+                           <value>Modificado pela última vez</value>
+                        </entry>
+                     </mapLocales>
+                  </name>
+               </column>
+               <column>
+                  <key>resources</key>
+                  <defaultValue>{p->filter(resources(p),r->not(isPerson(r)))}</defaultValue>
+                  <type>string</type>
+                  <name>
+                     <mapLocales>
+                        <entry>
+                           <key>cs</key>
+                           <value>Prostředky</value>
+                        </entry>
+                        <entry>
+                           <key>de</key>
+                           <value>Ressourcen</value>
+                        </entry>
+                        <entry>
+                           <key>en</key>
+                           <value>resources</value>
+                        </entry>
+                        <entry>
+                           <key>es</key>
+                           <value>Recursos</value>
+                        </entry>
+                        <entry>
+                           <key>fr</key>
+                           <value>Ressources</value>
+                        </entry>
+                        <entry>
+                           <key>nl</key>
+                           <value>Middelen</value>
+                        </entry>
+                        <entry>
+                           <key>pl</key>
+                           <value>Zasoby</value>
+                        </entry>
+                        <entry>
+                           <key>pt</key>
+                           <value>Recursos</value>
+                        </entry>
+                     </mapLocales>
+                  </name>
+               </column>
+               <column>
+                  <key>persons</key>
+                  <defaultValue>{p->filter(resources(p),r->isPerson(r))}</defaultValue>
+                  <type>string</type>
+                  <name>
+                     <mapLocales>
+                        <entry>
+                           <key>cs</key>
+                           <value>Osoby</value>
+                        </entry>
+                        <entry>
+                           <key>de</key>
+                           <value>Personen</value>
+                        </entry>
+                        <entry>
+                           <key>en</key>
+                           <value>persons</value>
+                        </entry>
+                        <entry>
+                           <key>es</key>
+                           <value>Personas</value>
+                        </entry>
+                        <entry>
+                           <key>fr</key>
+                           <value>Personnes</value>
+                        </entry>
+                        <entry>
+                           <key>nl</key>
+                           <value>Personen</value>
+                        </entry>
+                        <entry>
+                           <key>pl</key>
+                           <value>Osoby</value>
+                        </entry>
+                        <entry>
+                           <key>pt</key>
+                           <value>Pessoas</value>
+                        </entry>
+                     </mapLocales>
+                  </name>
+               </column>
+               <column>
+                  <key>customColumn_1</key>
+                  <defaultValue/>
+                  <type>string</type>
+                  <name>
+                     <mapLocales>
+                        <entry>
+                           <key>de</key>
+                           <value>unbenannte Spalte</value>
+                        </entry>
+                        <entry>
+                           <key>en</key>
+                           <value>unnamed column</value>
+                        </entry>
+                     </mapLocales>
+                  </name>
+               </column>
+               <column>
+                  <key>customColumn_2</key>
+                  <defaultValue/>
+                  <type>string</type>
+                  <name>
+                     <mapLocales>
+                        <entry>
+                           <key>cs</key>
+                           <value>unnamed_column</value>
+                        </entry>
+                        <entry>
+                           <key>de</key>
+                           <value>unnamed_column</value>
+                        </entry>
+                        <entry>
+                           <key>en</key>
+                           <value>unnamed column</value>
+                        </entry>
+                        <entry>
+                           <key>es</key>
+                           <value>unnamed_column</value>
+                        </entry>
+                        <entry>
+                           <key>fr</key>
+                           <value>unnamed_column</value>
+                        </entry>
+                        <entry>
+                           <key>nl</key>
+                           <value>unnamed_column</value>
+                        </entry>
+                        <entry>
+                           <key>pl</key>
+                           <value>unnamed_column</value>
+                        </entry>
+                        <entry>
+                           <key>pt</key>
+                           <value>unnamed_column</value>
+                        </entry>
+                        <entry>
+                           <key>zh</key>
+                           <value>unnamed_column</value>
+                        </entry>
+                     </mapLocales>
+                  </name>
+               </column>
+               <views>
+                  <entry>
+                     <key>appointments</key>
+                     <name>
+                        <mapLocales>
+                           <entry>
+                              <key>cs</key>
+                              <value>Rezervace</value>
+                           </entry>
+                           <entry>
+                              <key>de</key>
+                              <value>Termine</value>
+                           </entry>
+                           <entry>
+                              <key>en</key>
+                              <value>appointments</value>
+                           </entry>
+                           <entry>
+                              <key>es</key>
+                              <value>Citas</value>
+                           </entry>
+                           <entry>
+                              <key>fr</key>
+                              <value>Réservations</value>
+                           </entry>
+                           <entry>
+                              <key>nl</key>
+                              <value>Afspraken</value>
+                           </entry>
+                           <entry>
+                              <key>pl</key>
+                              <value>Terminy</value>
+                           </entry>
+                           <entry>
+                              <key>pt</key>
+                              <value>Compromissos</value>
+                           </entry>
+                        </mapLocales>
+                     </name>
+                     <contentDefinition>{p->appointmentBlocks(p)}</contentDefinition>
+                     <value>
+                        <item>name</item>
+                        <item>start</item>
+                        <item>end</item>
+                        <item>resources</item>
+                        <item>persons</item>
+                     </value>
+                  </entry>
+                  <entry>
+                     <key>events</key>
+                     <name>
+                        <mapLocales>
+                           <entry>
+                              <key>cs</key>
+                              <value>Události</value>
+                           </entry>
+                           <entry>
+                              <key>de</key>
+                              <value>Veranstaltungen</value>
+                           </entry>
+                           <entry>
+                              <key>en</key>
+                              <value>reservations</value>
+                           </entry>
+                           <entry>
+                              <key>es</key>
+                              <value>Eventos</value>
+                           </entry>
+                           <entry>
+                              <key>fr</key>
+                              <value>Événements</value>
+                           </entry>
+                           <entry>
+                              <key>nl</key>
+                              <value>Reservaties</value>
+                           </entry>
+                           <entry>
+                              <key>pl</key>
+                              <value>Wydarzenia</value>
+                           </entry>
+                           <entry>
+                              <key>pt</key>
+                              <value>Eventos</value>
+                           </entry>
+                        </mapLocales>
+                     </name>
+                     <contentDefinition>{p->events(p)}</contentDefinition>
+                     <value>
+                        <item>name</item>
+                        <item>start</item>
+                        <item>lastchanged</item>
+                     </value>
+                  </entry>
+               </views>
+            </config>
+         </rapla:config>
+      </rapla:entry>
+      <rapla:entry key="org.rapla.plugin.abstractcalendar.only_own_reservations" value="false"/>
+      <rapla:entry key="org.rapla.crypto.server.privateKey" value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCbTXNZUZ13uG7HSHYP1a2vrHQvnCwoKsEJ-dRusGh_MdOvKV9oXlcaD1_EdQkuEOQyeiuhyo9z2uESTGnC3MSlcVLewXeYD6wJNR46VEJ01SjKect8ruMtR_QbvQ72YjJITP_-hSn4Jk9ivQdmLcsI7nKJf9QwOoXy9k38hWsJN119jbBTjVvLsUfhIZ7ceBbUSdGf7KqtpaSk_qq6HASavsQ0rFQ9ZnpcmQp-oujfkG26_dK7FFmYohgBpl9H3zjvnLrnGjHbgyWbKIREvxbCoauZiO3cqeOgZwr5xX1kmcrENcXWRUvekIvQQ3fSxWJLsALg8IJ0vHHQBNq9pwYbAgMBAAECggEAVHN7hFijXpUGeIvo15eEyYDn9XPhdz44luoqIL8BNBmuWRQQc7rJdrxhgX17Lne0_9X7oBF8jK27sq2m3XYb4TOMsuFV3XS4QpGGDIYBVXMMqX4tr3GSy-7Sybq3RjgDy9lDY-6Z8f0zMihEu8WvIP45fpfqlQdeC87wfZ83o1yFORTAkhefEQ8WywIvmp7QuM46fKDBIrTcehXo1_webos7cqTLFHwX0fAofgVzJig2oKUbQGZdK54wDpLKRjjD796YNOjNaoEQfpINnxig24hg4MH2lQzYruFCCEJ7zedANuet7UqwUqFtHQddkCNd3GJk1fZYq4SfNIda0E0yEQKBgQDHaF1NZv9vx4uVK1FPj8GD8JHt9FCH5UWleRkJkUn19GTGUkp--n0FYdeuk_Moe07Rz3VJdRT1IauMfPaFg7ETVclQpVrQTJMHSILHejU-zwAOWWGF26t6LRXE914OsOMZ2-kkqFyL69-y9IMLtZldnRCEODHKdHRvPXx8joBI7wKBgQDHYLNTsHUHz5QUEpKHUu5SPf3jkEo3_efA4pS9CBYYSPwerzEhyJXl6nMDsIuCpXxR8Jei6DqhHvjCgi5X3q3on8UTmbx9tSoNWBL3TGWrJ7r7ngFlkZHjS9pEhMrZdUS4Ift7B1-QqGNa41V1ROOf4yGl72RRqwx_fzDsL96dlQKBgCZWclnHS6T6AGQVh_R79wCe5--P4Uu_ULyXo7CrNkULT7SxbZEsJ405WnY-C6nkyyqbcDlHQVg_uPOxstPIlerZu3K918_kaQAleL9RR5tjwOcBWDacHUPIFz9fL74zU_ZMyW460FA2cTO-vtMpfur4n4xMIYaDDT-12pE39IIRAoGBAIFVcF68m946QJOYzKauHF0LS7Qf-JVDxt-v286X_UU5qxr4iIWiyeJAaOWe05EnanL5AFS0ErxMDBCZRBjKIcRCSCSD2Osu5x2K4Zq8W0Ng3YG1qLBLcvigTvGdtrzDvpU3rhvL16lOIk1mJRySWJpyS3SJy2jS7aOTTZgZIW7VAoGARRdl8D3mLYGH8avTi8rLNzDvHMtftT3hXwMz0GRRGQErTzHHvjXJSFDe2-Bg7ZbvDDjbgBrU0dgHSIDx8ECwikvqxrdWYABGHIZA6NIBGxka5EiCCpMG4y962oTfOqA0KVjmNcJ_GQp__-VZNfpExgAuLu_27b2EGFYkA2XbeDw"/>
+      <rapla:entry key="org.rapla.crypto.publicKey" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm01zWVGdd7hux0h2D9Wtr6x0L5wsKCrBCfnUbrBofzHTrylfaF5XGg9fxHUJLhDkMnorocqPc9rhEkxpwtzEpXFS3sF3mA-sCTUeOlRCdNUoynnLfK7jLUf0G70O9mIySEz__oUp-CZPYr0HZi3LCO5yiX_UMDqF8vZN_IVrCTddfY2wU41by7FH4SGe3HgW1EnRn-yqraWkpP6quhwEmr7ENKxUPWZ6XJkKfqLo35Btuv3SuxRZmKIYAaZfR98475y65xox24MlmyiERL8WwqGrmYjt3KnjoGcK-cV9ZJnKxDXF1kVL3pCL0EN30sViS7AC4PCCdLxx0ATavacGGwIDAQAB"/>
+      <rapla:entry key="org.rapla.plugin.mail.DefaultSender" value="evan.jug@gmail.com"/>
+      <rapla:entry key="org.rapla.timezone" value="Europe/Paris"/>
+      <rapla:entry key="org.rapla.refreshInterval" value="30000"/>
+   </rapla:preferences>
+
+   <rapla:users>
+      <!-- Users of the system -->
+      <rapla:user id="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T12:37:12.0121Z" last-changed="2019-01-10T15:07:05.0641Z" username="admin" password="sha-1:d033e22ae348aeb5660fc2140aec35850c4da997" name="JUGE Evan" email="evan.j@hotmail.fr" isAdmin="true">
+         <rapla:preferences>
+            <rapla:entry key="org.rapla.plugin.notification.allocationlisteners">
+               <rapla:map>
+               </rapla:map>
+            </rapla:entry>
+            <rapla:entry key="org.rapla.calendarview">
+               <rapla:config>
+                  <calendar-options>
+                     <color>reservations_and_resources</color>
+                     <worktime>8-18</worktime>
+                     <exceptions-visible>false</exceptions-visible>
+                     <rows-per-hour>4</rows-per-hour>
+                     <exclude-days>7,1</exclude-days>
+                     <days-in-weekview>5</days-in-weekview>
+                     <first-day-of-week>2</first-day-of-week>
+                     <minimum-block-width>0</minimum-block-width>
+                     <non-filtered-events>transparent</non-filtered-events>
+                  </calendar-options>
+               </rapla:config>
+            </rapla:entry>
+            <rapla:entry key="org.rapla.conflict.showWarning" value="true"/>
+            <rapla:entry key="org.rapla.calendar.showNotInCalendarWarning" value="true"/>
+            <rapla:entry key="export_attendees" value="false"/>
+            <rapla:entry key="export_attendees_participation_status" value="TENTATIVE"/>
+            <rapla:entry key="org.rapla.showSelection" value="true"/>
+            <rapla:entry key="org.rapla.plugin.notification.notify_if_owner" value="false"/>
+         </rapla:preferences>
+      </rapla:user>
+   </rapla:users>
+
+   <rapla:resources>
+      <!-- resources -->
+      <rapla:person id="rb88c787-19a7-46d3-98ee-7ed56bbbbb74" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T12:47:47.0771Z" last-changed="2019-01-11T12:44:32.0292Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>LAJOIE</dynatt:surname>
+            <dynatt:firstname>Benjamin</dynatt:firstname>
+            <dynatt:email>belajoie@stpbb.org</dynatt:email>
+            <dynatt:classe>r51ded5f-b0db-4d1c-acf6-10e51fb9bde7</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r40b04fb-40b5-4c0d-8ad1-c9cd7eccf09e" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:19:37.0087Z" last-changed="2019-01-09T14:50:05.0039Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>AUNET</dynatt:surname>
+            <dynatt:firstname>Ludivine</dynatt:firstname>
+            <dynatt:email>luaunet@stpbb.org</dynatt:email>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r71beb8f-3c15-4bd8-9a50-95e960025102" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:20:06.0310Z" last-changed="2019-01-10T13:18:22.0120Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>AYRAULT</dynatt:surname>
+            <dynatt:firstname>Frédérique</dynatt:firstname>
+            <dynatt:email>frayrault@stpbb.org</dynatt:email>
+            <dynatt:classe>r51ded5f-b0db-4d1c-acf6-10e51fb9bde7</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rc265f9b-253d-4e61-8173-4b73aa151323" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:20:35.0918Z" last-changed="2019-01-11T12:43:46.0407Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>BARTHELEMY</dynatt:surname>
+            <dynatt:firstname>Gervais</dynatt:firstname>
+            <dynatt:email>gebarthelemy@stpbb.org</dynatt:email>
+            <dynatt:classe>rfb79449-b152-48ed-aac7-178f5d018c8f</dynatt:classe>
+            <dynatt:classe>r14c3cf1-7f5d-4e0d-82b5-d50c801691f9</dynatt:classe>
+            <dynatt:classe>r40ddb35-6590-4b82-b6a7-40b484d7932c</dynatt:classe>
+            <dynatt:classe>r51ded5f-b0db-4d1c-acf6-10e51fb9bde7</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="ra3cf26d-b989-4270-969f-b9f686b49aff" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:24:05.0502Z" last-changed="2019-01-11T12:41:04.0506Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>BERTHIER</dynatt:surname>
+            <dynatt:firstname>François</dynatt:firstname>
+            <dynatt:email>frberthier@stpbb.org</dynatt:email>
+            <dynatt:classe>r40ddb35-6590-4b82-b6a7-40b484d7932c</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r7c5ff01-a6cf-48c5-909d-78bed8714431" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:24:37.0150Z" last-changed="2019-01-11T12:36:03.0465Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>BILLET</dynatt:surname>
+            <dynatt:firstname>Lucille</dynatt:firstname>
+            <dynatt:email>lubillet@stpbb.org</dynatt:email>
+            <dynatt:classe>r6c8d5bf-7315-44be-8e7a-769e58d930a4</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r4384aba-4128-461e-9ced-1a9bf9f46843" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:26:26.0445Z" last-changed="2019-01-11T12:29:15.0630Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>BOLOLUMBROSO</dynatt:surname>
+            <dynatt:firstname>Valérie</dynatt:firstname>
+            <dynatt:email>vabololumbroso@stpbb.org</dynatt:email>
+            <dynatt:classe>r2740dd1-b6fd-4ab9-9b3b-88aedea638b3</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r3d85ef9-3b69-4084-baeb-34c33553e0cc" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:27:10.0445Z" last-changed="2019-01-11T12:43:55.0181Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>BORDELOT</dynatt:surname>
+            <dynatt:firstname>Jérémie</dynatt:firstname>
+            <dynatt:email>jebordelot@stpbb.org</dynatt:email>
+            <dynatt:classe>r51ded5f-b0db-4d1c-acf6-10e51fb9bde7</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r85d7576-8982-4c2c-9c57-6c2dd0916afb" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:27:44.0005Z" last-changed="2019-01-11T12:22:42.0314Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>BOULAIE</dynatt:surname>
+            <dynatt:firstname>Isabelle</dynatt:firstname>
+            <dynatt:email>isboulaie@stppb.org</dynatt:email>
+            <dynatt:classe>r2740dd1-b6fd-4ab9-9b3b-88aedea638b3</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r61fc525-7519-4d79-874a-5f682022cc00" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:28:07.0549Z" last-changed="2019-01-11T12:41:34.0929Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>BRITIT</dynatt:surname>
+            <dynatt:firstname>Zakaria</dynatt:firstname>
+            <dynatt:email>zabritit@stpbb.org</dynatt:email>
+            <dynatt:classe>r40ddb35-6590-4b82-b6a7-40b484d7932c</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rbebd9ea-37a7-4f1e-aefc-692bb3135f39" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:28:39.0750Z" last-changed="2019-01-09T14:50:05.0039Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>CAMPION</dynatt:surname>
+            <dynatt:firstname>Anne-Priscille</dynatt:firstname>
+            <dynatt:email>ancampion@stpbb.org</dynatt:email>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="refecfd0-1742-48bc-a7af-44e0418f642c" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:32:14.0245Z" last-changed="2019-01-09T14:50:05.0039Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>CARREAU</dynatt:surname>
+            <dynatt:firstname>Marjorie</dynatt:firstname>
+            <dynatt:email>macarreau@stpbb.org</dynatt:email>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r89cb7c4-6c7a-40af-8257-ff9cdc359d06" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:32:38.0717Z" last-changed="2019-01-11T12:40:24.0785Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>CESAR</dynatt:surname>
+            <dynatt:firstname>Stéphanie</dynatt:firstname>
+            <dynatt:email>stcesar@stpbb.org</dynatt:email>
+            <dynatt:classe>rfb79449-b152-48ed-aac7-178f5d018c8f</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r30a798f-8f50-4480-840a-d35f14b494a4" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:36:57.0308Z" last-changed="2019-01-09T14:50:05.0039Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>CHAMBERS</dynatt:surname>
+            <dynatt:firstname>Nathalie</dynatt:firstname>
+            <dynatt:email>nachambers@stpbb.org</dynatt:email>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rc9f3eb1-3cb9-402f-a48d-4dddeb6923b0" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:37:25.0803Z" last-changed="2019-01-11T12:43:29.0553Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>DE BOUVILLE</dynatt:surname>
+            <dynatt:firstname>Florence</dynatt:firstname>
+            <dynatt:email>fldebouville@stpbb.org</dynatt:email>
+            <dynatt:classe>r14c3cf1-7f5d-4e0d-82b5-d50c801691f9</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r47a3bf7-2ccb-486d-969a-23b3fb95a022" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:38:15.0172Z" last-changed="2019-01-11T12:37:04.0209Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>DESNOUES</dynatt:surname>
+            <dynatt:firstname>Sébastien</dynatt:firstname>
+            <dynatt:email>sedesnoues@stpbb.org</dynatt:email>
+            <dynatt:classe>r6c8d5bf-7315-44be-8e7a-769e58d930a4</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r8d4a7fb-77ab-461c-92a9-e0e45a3a32ff" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:38:40.0548Z" last-changed="2019-01-09T14:50:05.0039Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>DION</dynatt:surname>
+            <dynatt:firstname>Marc</dynatt:firstname>
+            <dynatt:email>madion@stpbb.org</dynatt:email>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r653650b-e35e-4b63-b0bc-361b3c245091" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:38:59.0236Z" last-changed="2019-01-11T12:40:01.0548Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>DUROCHER</dynatt:surname>
+            <dynatt:firstname>Florence</dynatt:firstname>
+            <dynatt:email>fldurocher@stpbb.org</dynatt:email>
+            <dynatt:classe>rfb79449-b152-48ed-aac7-178f5d018c8f</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r0824d77-7af6-4dfd-933d-3ee73c163b7b" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:39:17.0724Z" last-changed="2019-01-09T14:50:05.0039Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>DURU</dynatt:surname>
+            <dynatt:firstname>Géraldine</dynatt:firstname>
+            <dynatt:email>geduru@stpbb.org</dynatt:email>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rbae51b9-840f-4abb-a6d5-86edb9fa90cc" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:39:50.0427Z" last-changed="2019-01-09T14:50:05.0039Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>FAIZEAU</dynatt:surname>
+            <dynatt:firstname>Sabine</dynatt:firstname>
+            <dynatt:email>safaizeau@stpbb.org</dynatt:email>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r8a66c84-a504-4090-8c50-3e87eb416ac4" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:40:13.0204Z" last-changed="2019-01-11T12:42:26.0881Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>FERNAGU</dynatt:surname>
+            <dynatt:firstname>Sophie</dynatt:firstname>
+            <dynatt:email>sofernagu@stpbb.org</dynatt:email>
+            <dynatt:classe>r14c3cf1-7f5d-4e0d-82b5-d50c801691f9</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r5d6516e-e9ca-450f-989a-30ddb63f0138" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:41:01.0419Z" last-changed="2019-01-11T12:36:48.0932Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>FOUQUEAU</dynatt:surname>
+            <dynatt:firstname>Christine</dynatt:firstname>
+            <dynatt:email>chfauqueau@stpbb.org</dynatt:email>
+            <dynatt:classe>r1aff0bf-0a40-482b-8743-a39421b5c8f3</dynatt:classe>
+            <dynatt:classe>r6c8d5bf-7315-44be-8e7a-769e58d930a4</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r57fab0d-2878-4f3c-af7c-66fa3c51cee4" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:41:35.0459Z" last-changed="2019-01-10T13:19:04.0374Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>FRUCHART</dynatt:surname>
+            <dynatt:firstname>Thomas</dynatt:firstname>
+            <dynatt:email>thfruchart@stpbb.org</dynatt:email>
+            <dynatt:classe>r51ded5f-b0db-4d1c-acf6-10e51fb9bde7</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r34e55f5-cfe8-4f55-a004-27981defacd1" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:41:54.0274Z" last-changed="2019-01-11T12:41:14.0921Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>GOUACHE</dynatt:surname>
+            <dynatt:firstname>Jacqueline</dynatt:firstname>
+            <dynatt:email>jagouache@stpbb.org</dynatt:email>
+            <dynatt:classe>r40ddb35-6590-4b82-b6a7-40b484d7932c</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r8fc32e6-29d8-41cb-89c1-4a0fcd1bcce5" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:42:19.0539Z" last-changed="2019-01-09T14:50:05.0039Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>GREGORIADIS</dynatt:surname>
+            <dynatt:firstname>Nelly</dynatt:firstname>
+            <dynatt:email>negregoriadis@stpbb.org</dynatt:email>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rfcec32f-5cf5-4e55-8be2-334daccf69f2" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:43:11.0787Z" last-changed="2019-01-11T12:35:22.0547Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>GUERAUD</dynatt:surname>
+            <dynatt:firstname>Nathalie</dynatt:firstname>
+            <dynatt:email>nagueraud@stpbb.org</dynatt:email>
+            <dynatt:classe>r1aff0bf-0a40-482b-8743-a39421b5c8f3</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r183fc4d-07a1-47ae-85e6-d28b7dfab79b" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:43:46.0171Z" last-changed="2019-01-11T12:41:56.0095Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>HEUGUET</dynatt:surname>
+            <dynatt:firstname>Marie-Christine</dynatt:firstname>
+            <dynatt:email>maheuguet@stpbb.org</dynatt:email>
+            <dynatt:classe>rfb79449-b152-48ed-aac7-178f5d018c8f</dynatt:classe>
+            <dynatt:classe>r40ddb35-6590-4b82-b6a7-40b484d7932c</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r1bacfc3-c329-488e-8dff-61a30b6b439a" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:44:26.0363Z" last-changed="2019-01-11T12:29:00.0169Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>JACQUEMART</dynatt:surname>
+            <dynatt:firstname>Nadine</dynatt:firstname>
+            <dynatt:email>najacquemart@stpbb.org</dynatt:email>
+            <dynatt:classe>r2740dd1-b6fd-4ab9-9b3b-88aedea638b3</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r8234b59-9f79-49e0-a954-eb9b74f739f0" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:45:49.0339Z" last-changed="2019-01-11T12:42:10.0250Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>JEANDEL</dynatt:surname>
+            <dynatt:firstname>Elsa</dynatt:firstname>
+            <dynatt:email>eljeandel@stpbb.org</dynatt:email>
+            <dynatt:classe>rfb79449-b152-48ed-aac7-178f5d018c8f</dynatt:classe>
+            <dynatt:classe>r40ddb35-6590-4b82-b6a7-40b484d7932c</dynatt:classe>
+            <dynatt:classe>r14c3cf1-7f5d-4e0d-82b5-d50c801691f9</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r392c777-cc2e-40a1-8cb6-8192c443b948" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:47:54.0395Z" last-changed="2019-01-10T13:19:44.0238Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>JOUNION</dynatt:surname>
+            <dynatt:firstname>François-Xavier</dynatt:firstname>
+            <dynatt:email>frjounion@stpbb.org</dynatt:email>
+            <dynatt:classe>r51ded5f-b0db-4d1c-acf6-10e51fb9bde7</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r23e752d-fe66-4bc6-a7e2-6589bc04fd48" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:48:24.0995Z" last-changed="2019-01-11T12:33:41.0915Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>LACOUX-STORNI</dynatt:surname>
+            <dynatt:firstname>Marion</dynatt:firstname>
+            <dynatt:email>malacouxstorni@stpbb.org</dynatt:email>
+            <dynatt:classe>r1aff0bf-0a40-482b-8743-a39421b5c8f3</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rcbbba9f-0b0b-422b-afc5-7c81e33fb08b" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:08:33.0064Z" last-changed="2019-01-11T12:38:19.0865Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>LAVERNHE</dynatt:surname>
+            <dynatt:firstname>Pascale</dynatt:firstname>
+            <dynatt:email>palavernhe@stpbb.org</dynatt:email>
+            <dynatt:classe>r2740dd1-b6fd-4ab9-9b3b-88aedea638b3</dynatt:classe>
+            <dynatt:classe>r6c8d5bf-7315-44be-8e7a-769e58d930a4</dynatt:classe>
+            <dynatt:classe>r40ddb35-6590-4b82-b6a7-40b484d7932c</dynatt:classe>
+            <dynatt:classe>rfb79449-b152-48ed-aac7-178f5d018c8f</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rf8fdca5-7b41-40a6-8f60-432681ff703c" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:09:30.0007Z" last-changed="2019-01-11T12:33:51.0778Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>LEJEUNE</dynatt:surname>
+            <dynatt:firstname>Vriginie</dynatt:firstname>
+            <dynatt:email>vilejeune@stpbb.org</dynatt:email>
+            <dynatt:classe>r1aff0bf-0a40-482b-8743-a39421b5c8f3</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r60923a9-102f-44c1-99ae-38856c971640" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:09:59.0400Z" last-changed="2019-01-11T12:43:01.0975Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>MANIAGO</dynatt:surname>
+            <dynatt:firstname>Michèle</dynatt:firstname>
+            <dynatt:email>mimaniago@stpbb.org</dynatt:email>
+            <dynatt:classe>r14c3cf1-7f5d-4e0d-82b5-d50c801691f9</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r37680bd-b466-4030-9b31-7d32ca5b7c2e" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:23:55.0289Z" last-changed="2019-01-11T12:37:32.0860Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>MORELLE</dynatt:surname>
+            <dynatt:firstname>Valérie</dynatt:firstname>
+            <dynatt:email>vamorelle@stpbb.org</dynatt:email>
+            <dynatt:classe>r6c8d5bf-7315-44be-8e7a-769e58d930a4</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r380330c-c2a2-4bdd-97ae-3adb37823646" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:24:27.0577Z" last-changed="2019-01-09T14:50:05.0039Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>NOIRAULT</dynatt:surname>
+            <dynatt:firstname>Anne</dynatt:firstname>
+            <dynatt:email>annoirault@stpbb.org</dynatt:email>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r8cf3edb-2c1f-4eef-af28-4c3a42c42534" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:25:44.0378Z" last-changed="2019-01-11T12:40:48.0470Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>PAYET</dynatt:surname>
+            <dynatt:firstname>Leslie</dynatt:firstname>
+            <dynatt:email>lepayet@stpbb.org</dynatt:email>
+            <dynatt:classe>r2740dd1-b6fd-4ab9-9b3b-88aedea638b3</dynatt:classe>
+            <dynatt:classe>r17e8efd-196d-45e7-b3bc-2cfb11acfef0</dynatt:classe>
+            <dynatt:classe>r6c8d5bf-7315-44be-8e7a-769e58d930a4</dynatt:classe>
+            <dynatt:classe>r1aff0bf-0a40-482b-8743-a39421b5c8f3</dynatt:classe>
+            <dynatt:classe>rfb79449-b152-48ed-aac7-178f5d018c8f</dynatt:classe>
+            <dynatt:classe>r40ddb35-6590-4b82-b6a7-40b484d7932c</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="re3ec450-3442-49fb-9c2c-f1accfcfd435" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:26:05.0971Z" last-changed="2019-01-11T12:34:46.0283Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>PESENTI</dynatt:surname>
+            <dynatt:firstname>Aude</dynatt:firstname>
+            <dynatt:email>aupesenti@stpbb.org</dynatt:email>
+            <dynatt:classe>r17e8efd-196d-45e7-b3bc-2cfb11acfef0</dynatt:classe>
+            <dynatt:classe>r1aff0bf-0a40-482b-8743-a39421b5c8f3</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rd77f0ac-7ac5-4e31-a696-1b7a8f57739b" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:26:35.0234Z" last-changed="2019-01-11T12:43:16.0842Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>ROCHETTE</dynatt:surname>
+            <dynatt:firstname>Laurence</dynatt:firstname>
+            <dynatt:email>larochette</dynatt:email>
+            <dynatt:classe>r2740dd1-b6fd-4ab9-9b3b-88aedea638b3</dynatt:classe>
+            <dynatt:classe>r14c3cf1-7f5d-4e0d-82b5-d50c801691f9</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r1b08a30-bbc7-44a4-850c-ca0f1d37756a" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:26:57.0625Z" last-changed="2019-01-11T12:19:18.0088Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>THIBAULT</dynatt:surname>
+            <dynatt:firstname>Helene</dynatt:firstname>
+            <dynatt:email>hethibault</dynatt:email>
+            <dynatt:classe>r2740dd1-b6fd-4ab9-9b3b-88aedea638b3</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r63dde67-8c12-4051-bfe3-41709ef91e39" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:27:23.0682Z" last-changed="2019-01-11T12:37:46.0569Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>THOMASSIN</dynatt:surname>
+            <dynatt:firstname>Patricia</dynatt:firstname>
+            <dynatt:email>pathomassin@stpbb.org</dynatt:email>
+            <dynatt:classe>r6c8d5bf-7315-44be-8e7a-769e58d930a4</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r79e366e-31af-43bf-882f-c728894bd93f" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:27:49.0506Z" last-changed="2019-01-11T12:31:56.0947Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>TIGE</dynatt:surname>
+            <dynatt:firstname>Fanny</dynatt:firstname>
+            <dynatt:email>fatige@stpbb.org</dynatt:email>
+            <dynatt:classe>r17e8efd-196d-45e7-b3bc-2cfb11acfef0</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rbd774bf-f8cd-4531-9e5b-26d57780f434" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:28:16.0481Z" last-changed="2019-01-11T12:37:18.0166Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>TOURLOURAT</dynatt:surname>
+            <dynatt:firstname>Elise</dynatt:firstname>
+            <dynatt:email>eltourlourat@stpbb.org</dynatt:email>
+            <dynatt:classe>r6c8d5bf-7315-44be-8e7a-769e58d930a4</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r3b58c75-3578-4d51-a48c-369435963967" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:28:38.0315Z" last-changed="2019-01-11T12:44:21.0695Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>JAHIER</dynatt:surname>
+            <dynatt:firstname>Carl</dynatt:firstname>
+            <dynatt:email>cajahier@stpbb.org</dynatt:email>
+            <dynatt:classe>r17e8efd-196d-45e7-b3bc-2cfb11acfef0</dynatt:classe>
+            <dynatt:classe>r51ded5f-b0db-4d1c-acf6-10e51fb9bde7</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r61f9849-3684-4dfa-b03d-f708c8516a9d" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:28:55.0619Z" last-changed="2019-01-10T13:19:23.0102Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>MOUCHARD</dynatt:surname>
+            <dynatt:firstname>Jean-Luc</dynatt:firstname>
+            <dynatt:email>jl.mouchard@stpaulbb.org</dynatt:email>
+            <dynatt:classe>r51ded5f-b0db-4d1c-acf6-10e51fb9bde7</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r90d8d3a-830a-4765-9678-3caf4ad687d6" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T15:06:01.0778Z" last-changed="2019-01-10T14:38:39.0040Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>JUGE</dynatt:surname>
+            <dynatt:firstname>Evan</dynatt:firstname>
+            <dynatt:email>evan.j@hotmail.fr</dynatt:email>
+            <dynatt:classe>r51ded5f-b0db-4d1c-acf6-10e51fb9bde7</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rbbfa80e-2e08-446a-afb1-5357ab1a03fa" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-11T12:30:55.0955Z" last-changed="2019-01-11T12:31:37.0681Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>ZEHLER</dynatt:surname>
+            <dynatt:firstname>Odile</dynatt:firstname>
+            <dynatt:email>odzehler@stpbb.org</dynatt:email>
+            <dynatt:classe>r17e8efd-196d-45e7-b3bc-2cfb11acfef0</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="r170441f-40cc-458f-9f0a-89eb2734a402" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-11T12:32:19.0045Z" last-changed="2019-01-11T12:32:57.0853Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>VINSON</dynatt:surname>
+            <dynatt:firstname>Valérie</dynatt:firstname>
+            <dynatt:email>vavinson@stpbb.org</dynatt:email>
+            <dynatt:classe>r17e8efd-196d-45e7-b3bc-2cfb11acfef0</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:person id="rd2d5527-c7df-4c4f-a8d9-00c8e73ba541" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-11T12:39:01.0419Z" last-changed="2019-01-11T12:42:49.0763Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:prof>
+            <dynatt:surname>FOUCHARD</dynatt:surname>
+            <dynatt:firstname>Annie</dynatt:firstname>
+            <dynatt:email>anfouchard@stpbb.org</dynatt:email>
+            <dynatt:classe>rfb79449-b152-48ed-aac7-178f5d018c8f</dynatt:classe>
+            <dynatt:classe>r40ddb35-6590-4b82-b6a7-40b484d7932c</dynatt:classe>
+            <dynatt:classe>r14c3cf1-7f5d-4e0d-82b5-d50c801691f9</dynatt:classe>
+         </dynatt:prof>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:person>
+      <rapla:resource id="re17f4ff-b529-445f-8737-3967242da321" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:02:49.0010Z" last-changed="2019-01-10T13:16:00.0240Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>Amphithéâtre</dynatt:name>
+            <dynatt:capacite>70</dynatt:capacite>
+            <dynatt:remarque>ATTENTION : Deux professeurs nécessaire par créneau</dynatt:remarque>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rb148be2-9a4a-4e28-961e-d7ef00d524a1" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:30:41.0493Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>Marie-Louise</dynatt:name>
+            <dynatt:capacite>30</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r2eb5d7c-e506-46f4-9efe-9456ab2b8bbb" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:43:37.0971Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D21</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r9b0ec0e-bfe5-4dba-ad5c-ae243be9b1d7" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:43:59.0353Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D22</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r67a69bb-c165-4dae-8786-755f2d8f5755" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:44:48.0647Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D23</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r2377073-b46d-4359-8437-7aa666568e87" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:44:57.0004Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D24</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r011ecab-2f03-4ccb-989d-07563bc520e6" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:45:21.0066Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D26</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r5e19013-78e0-4993-95ce-1dab360c3003" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:45:30.0677Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D25</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r59b55a8-d4b3-488b-91e9-5e4710b0c332" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:46:23.0189Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D27</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r37ad7f8-5ca3-4297-a5d2-38b6862390b4" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:46:50.0697Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D28</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r7c143ad-8499-4ae1-b2a3-4489f416256c" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:47:06.0337Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D31</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r611ee66-3f00-436b-95a1-c37b6971d375" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:47:13.0909Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D32</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r5b00f48-b761-4d1e-8b17-6a1147a777ae" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:47:23.0018Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D33</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r95c3551-0727-4fe5-b6fb-57a92f9ec149" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:47:32.0353Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D34</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rd854357-f462-4c75-9e5d-201707fd673e" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:47:41.0213Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D35</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r5e6e3a7-3331-4c34-9f24-2f491e4799ca" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:47:49.0480Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>D36</dynatt:name>
+            <dynatt:capacite>15</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r79cfffa-f48d-48fc-8934-da88b462d6f9" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:48:05.0179Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>Marie-Louise2</dynatt:name>
+            <dynatt:capacite>30</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r35120aa-dc75-40cf-ad2a-12221ef1e454" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:48:28.0948Z" last-changed="2019-01-09T15:00:07.0277Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource1>
+            <dynatt:name>C03</dynatt:name>
+            <dynatt:capacite>25</dynatt:capacite>
+         </dynatt:resource1>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r51ded5f-b0db-4d1c-acf6-10e51fb9bde7" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T13:04:55.0404Z" last-changed="2019-01-09T15:00:25.0497Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource2>
+            <dynatt:name>TS2SIO</dynatt:name>
+            <dynatt:nbeleves>25</dynatt:nbeleves>
+         </dynatt:resource2>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r2740dd1-b6fd-4ab9-9b3b-88aedea638b3" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:30:47.0123Z" last-changed="2019-01-09T15:00:25.0497Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource2>
+            <dynatt:name>TS2AG</dynatt:name>
+            <dynatt:nbeleves>25</dynatt:nbeleves>
+         </dynatt:resource2>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r6c8d5bf-7315-44be-8e7a-769e58d930a4" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:31:00.0436Z" last-changed="2019-01-09T15:00:25.0497Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource2>
+            <dynatt:name>TS2CG</dynatt:name>
+            <dynatt:nbeleves>25</dynatt:nbeleves>
+         </dynatt:resource2>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rfb79449-b152-48ed-aac7-178f5d018c8f" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:31:12.0061Z" last-changed="2019-01-09T15:00:25.0497Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource2>
+            <dynatt:name>TS2MUC</dynatt:name>
+            <dynatt:nbeleves>25</dynatt:nbeleves>
+         </dynatt:resource2>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r14c3cf1-7f5d-4e0d-82b5-d50c801691f9" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:31:26.0081Z" last-changed="2019-01-09T15:00:25.0497Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource2>
+            <dynatt:name>TS2NRC</dynatt:name>
+            <dynatt:nbeleves>25</dynatt:nbeleves>
+         </dynatt:resource2>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r40ddb35-6590-4b82-b6a7-40b484d7932c" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:31:38.0240Z" last-changed="2019-01-09T15:00:25.0497Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource2>
+            <dynatt:name>TS2TR</dynatt:name>
+            <dynatt:nbeleves>25</dynatt:nbeleves>
+         </dynatt:resource2>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r1aff0bf-0a40-482b-8743-a39421b5c8f3" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:31:55.0646Z" last-changed="2019-01-09T15:00:25.0497Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource2>
+            <dynatt:name>TS2COM</dynatt:name>
+            <dynatt:nbeleves>25</dynatt:nbeleves>
+         </dynatt:resource2>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r17e8efd-196d-45e7-b3bc-2cfb11acfef0" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-09T14:43:47.0430Z" last-changed="2019-01-09T15:00:25.0497Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:resource2>
+            <dynatt:name>TS2AM</dynatt:name>
+            <dynatt:nbeleves>25</dynatt:nbeleves>
+         </dynatt:resource2>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r0bcffbf-75e3-4c89-9c6f-7e70bee8f352" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:23:47.0435Z" last-changed="2019-01-10T13:09:07.0168Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AG Français</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r58216ca-51a2-44fd-954a-ec9a98d60db8" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:24:02.0922Z" last-changed="2019-01-10T12:24:46.0695Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AG Langue vivante étrangère I</dynatt:name>
+            <dynatt:coeff>4</dynatt:coeff>
+            <dynatt:duree>2</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r7071e73-9f3a-4e34-a214-b50eac3daa27" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:24:49.0301Z" last-changed="2019-01-10T12:25:34.0120Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AG Economie et Droit</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>3</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rca79d49-3e32-44c1-ba65-fcf772ba0860" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:26:10.0124Z" last-changed="2019-01-10T12:26:23.0530Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AG Management des entreprises</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>3</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rd3f579d-eea6-4545-b6d8-6bc37ed2bed3" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:26:25.0668Z" last-changed="2019-01-10T13:09:19.0001Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AG Organisation et gestion de la PME</dynatt:name>
+            <dynatt:coeff>7</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r28b0191-c316-43cf-9ce7-def4ba873444" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:27:05.0347Z" last-changed="2019-01-10T12:28:40.0231Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AG Pérennisation et développement de la PME</dynatt:name>
+            <dynatt:coeff>2</dynatt:coeff>
+            <dynatt:duree>2</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r3b197fe-9342-4f51-b7af-fa919d1ff478" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:31:05.0632Z" last-changed="2019-01-10T13:09:03.0505Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AG Culture générale et expression</dynatt:name>
+            <dynatt:coeff>6</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r2d2d495-4e63-412e-816e-4ad4dfc1e165" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:36:55.0934Z" last-changed="2019-01-10T13:09:34.0921Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AM Français</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rcb44472-1140-4782-a661-a38862749f50" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:37:10.0036Z" last-changed="2019-01-10T13:09:39.0041Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AM Langue vivante étrangère I</dynatt:name>
+            <dynatt:coeff>2</dynatt:coeff>
+            <dynatt:duree>3</dynatt:duree>
+            <dynatt:remarque></dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="re41b945-7ae8-4dce-b0f1-533fe4176042" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:38:24.0601Z" last-changed="2019-01-10T12:38:44.0558Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AM Economie - Droit</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>3</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rf9b2a1b-f1a7-4a93-bb28-fef8ebe828ac" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:38:47.0563Z" last-changed="2019-01-10T13:09:30.0776Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS AM Etude de cas</dynatt:name>
+            <dynatt:coeff>4</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r7ac7f21-6b71-4a9b-84d8-599f250d7409" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:39:28.0736Z" last-changed="2019-01-10T13:09:42.0472Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS CG Culture générale et expression</dynatt:name>
+            <dynatt:coeff>4</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="re9bbfb5-e700-4bc9-9972-78e428dd5248" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:40:15.0877Z" last-changed="2019-01-10T13:09:49.0720Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS CG Mathématiques appliquées</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>2</dynatt:duree>
+            <dynatt:remarque></dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r544be60-b06b-4d6b-ad11-4279175fe7be" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:40:36.0552Z" last-changed="2019-01-10T13:09:46.0424Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS CG Economie - Droit</dynatt:name>
+            <dynatt:coeff>8</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rcf4eb91-6e53-407d-8036-abb68fb90704" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:41:27.0601Z" last-changed="2019-01-10T13:09:57.0569Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS CG Traitement et contrôle des opérations comptables, fiscales et sociales</dynatt:name>
+            <dynatt:coeff>10</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rca57bf5-f94a-48e0-9bb6-bd0373f1f84a" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:43:20.0083Z" last-changed="2019-01-10T13:10:06.0080Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS COM Cultures de la communication</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r4baed14-6c73-41e7-a90b-5140d7613130" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:43:48.0013Z" last-changed="2019-01-10T13:10:14.0688Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS COM Expression et culture en langue vivante étrangère A</dynatt:name>
+            <dynatt:coeff>2</dynatt:coeff>
+            <dynatt:duree>2</dynatt:duree>
+            <dynatt:remarque></dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r9b3b59a-362c-4e5e-8b83-d9c03dccd09d" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:44:10.0461Z" last-changed="2019-01-10T13:10:11.0768Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS COM Economie et Droit</dynatt:name>
+            <dynatt:coeff>2</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r6ff05d7-bb48-4a04-8036-b4819ec35dbd" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:44:30.0386Z" last-changed="2019-01-10T13:10:17.0648Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS COM Management des entreprises</dynatt:name>
+            <dynatt:coeff>1</dynatt:coeff>
+            <dynatt:duree>3</dynatt:duree>
+            <dynatt:remarque></dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rc4216d7-b750-4a23-ba09-2ddca987dd88" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:44:45.0243Z" last-changed="2019-01-10T13:10:02.0488Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS COM Activités de communication</dynatt:name>
+            <dynatt:coeff>4</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r1612c2b-82c0-4d7d-953c-5b5841d0b339" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:48:11.0339Z" last-changed="2019-01-10T13:10:21.0549Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS MUC Culture générale et expression</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r6590316-1977-4ee0-b8a3-e744088c045e" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:48:48.0939Z" last-changed="2019-01-10T13:10:34.0712Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS MUC Langue vivante étrangère I</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>2</dynatt:duree>
+            <dynatt:remarque></dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rc8756c1-2204-4598-9889-8c6e4f3f99b1" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:49:09.0813Z" last-changed="2019-01-10T13:10:31.0408Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS MUC Economie et Droit</dynatt:name>
+            <dynatt:coeff>2</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r71435cd-0232-4f0e-8736-5bab1a63dd94" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:49:44.0361Z" last-changed="2019-01-10T13:11:11.0233Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS MUC Management des entreprises</dynatt:name>
+            <dynatt:coeff>4</dynatt:coeff>
+            <dynatt:duree>5</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h30+2h30)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rb182da3-c827-422f-b8bb-28baa2498330" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:50:17.0044Z" last-changed="2019-01-10T13:11:23.0416Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS MUC Management et gestion des unités commerciales</dynatt:name>
+            <dynatt:coeff>4</dynatt:coeff>
+            <dynatt:duree>5</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h30+2h30)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r8dbfce8-fa00-4363-81dd-4b5fd57d4106" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:52:38.0850Z" last-changed="2019-01-10T13:11:32.0176Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS NRC Français</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="ra600c08-69eb-45de-b3b0-954959b45dca" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:53:15.0709Z" last-changed="2019-01-10T13:11:27.0720Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS NRC Economie - Droit</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r96b816c-55b0-494e-92a6-18eb061fcf51" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:53:53.0347Z" last-changed="2019-01-10T13:11:40.0824Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS NRC Management et gestion d'activités commerciales</dynatt:name>
+            <dynatt:coeff>4</dynatt:coeff>
+            <dynatt:duree>5</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h30+2h30)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r1d1169c-2f26-4247-8a37-cc1da36bd37f" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:56:34.0426Z" last-changed="2019-01-10T13:11:59.0608Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS SIO Culture générale et expression</dynatt:name>
+            <dynatt:coeff>2</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rbc3b5b3-fef2-4eb1-a8e4-fb6a5fb37dab" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:56:58.0497Z" last-changed="2019-01-10T12:57:22.0330Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS SIO Expression et communication en langue anglaise</dynatt:name>
+            <dynatt:coeff>2</dynatt:coeff>
+            <dynatt:duree>2</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r9103d52-74f5-45ce-b420-af8c546bcd7e" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:57:26.0334Z" last-changed="2019-01-10T12:57:44.0884Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS SIO Mathématiques</dynatt:name>
+            <dynatt:coeff>2</dynatt:coeff>
+            <dynatt:duree>2</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r15d9d20-b814-4711-a5d9-d043117328c3" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:57:47.0746Z" last-changed="2019-01-10T13:11:45.0816Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS SIO Analyse économique, managériale et juridique des services informatiques</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="re610825-f7bd-42e5-9cd7-120eeb528c89" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:58:08.0370Z" last-changed="2019-01-10T13:12:16.0464Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS SIO Production et fourniture de services informatiques</dynatt:name>
+            <dynatt:coeff>5</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="rc4cf0fd-a9c3-4114-a355-944d3c923cd0" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:58:35.0948Z" last-changed="2019-01-10T12:58:57.0220Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS SIO Mathématiques appronfondies</dynatt:name>
+            <dynatt:coeff>1</dynatt:coeff>
+            <dynatt:duree>2</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r5a8b892-b9ee-4837-8166-c26734d0eb7d" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T12:59:35.0279Z" last-changed="2019-01-10T13:12:25.0712Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS TR Culture générale et expression</dynatt:name>
+            <dynatt:coeff>4</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r9c582d3-6a31-4589-92fd-dbc72ef6e8b9" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T13:00:04.0688Z" last-changed="2019-01-10T13:00:40.0395Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS TR Compréhension de l'écrit et expression écrite</dynatt:name>
+            <dynatt:coeff>3</dynatt:coeff>
+            <dynatt:duree>2</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r87bebd0-ac73-4ab3-b921-08689d49568a" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T13:00:44.0128Z" last-changed="2019-01-10T13:12:29.0792Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS TR Economie et Droit</dynatt:name>
+            <dynatt:coeff>4</dynatt:coeff>
+            <dynatt:duree>4</dynatt:duree>
+            <dynatt:remarque>ATTENTION : Deux créneaux (2h+2h)</dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="re30de14-e59c-41ac-be87-f5bdc3e1cd5a" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T13:02:30.0331Z" last-changed="2019-01-10T13:12:33.0272Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS TR Management des Entreprises</dynatt:name>
+            <dynatt:coeff>2</dynatt:coeff>
+            <dynatt:duree>3</dynatt:duree>
+            <dynatt:remarque></dynatt:remarque>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+      <rapla:resource id="r160b19c-47ea-4040-abdc-3fcaacf63f42" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-10T13:03:15.0021Z" last-changed="2019-01-10T13:03:38.0140Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
+         <dynatt:epreuve>
+            <dynatt:name>BTS TR Analyse d'opérations de transport et de prestations logistiques</dynatt:name>
+            <dynatt:coeff>8</dynatt:coeff>
+            <dynatt:duree>3</dynatt:duree>
+         </dynatt:epreuve>
+         <rapla:permission access="allocate_conflicts"/>
+      </rapla:resource>
+
+   </rapla:resources>
+
+   <rapla:reservations>
+   </rapla:reservations>
+
+</rapla:data>
