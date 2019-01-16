@@ -1687,17 +1687,6 @@
          <rapla:allocate idref="r35120aa-dc75-40cf-ad2a-12221ef1e454"/>
          <rapla:permission group="category[key='read-events-from-others']" access="read"/>
       </rapla:reservation>
-      <rapla:reservation id="e11ff534-f375-4846-8b3b-095514c8e609" owner="ub08e04c-3f30-4923-a3c5-39253cb06bcb" created-at="2019-01-16T13:49:04.0953Z" last-changed="2019-01-16T13:50:23.0848Z" last-changed-by="ub08e04c-3f30-4923-a3c5-39253cb06bcb">
-         <dynatt:exam>
-            <dynatt:name></dynatt:name>
-         </dynatt:exam>
-         <rapla:appointment id="a040fe48-12f0-4c14-b5ef-6a31275a99a7" start-date="2019-05-13" start-time="14:00:00" end-date="2019-05-13" end-time="18:00:00"/>
-         <rapla:allocate idref="rb148be2-9a4a-4e28-961e-d7ef00d524a1"/>
-         <rapla:allocate idref="r17e8efd-196d-45e7-b3bc-2cfb11acfef0"/>
-         <rapla:allocate idref="re41b945-7ae8-4dce-b0f1-533fe4176042"/>
-         <rapla:allocate idref="ra3cf26d-b989-4270-969f-b9f686b49aff"/>
-         <rapla:permission group="category[key='read-events-from-others']" access="read"/>
-      </rapla:reservation>
    </rapla:reservations>
 
 </rapla:data>
