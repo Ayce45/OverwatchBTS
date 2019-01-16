@@ -1,192 +1,36 @@
-15:58:12.592 265  [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.17.v20150415
-15:58:12.624 297  [main] INFO  o.e.j.d.p.ScanningAppProvider - Deployment monitor C:\Users\sio2\Desktop\rapla-binary-1.8.4\contexts at interval 1
-15:58:12.639 312  [main] INFO  o.e.jetty.deploy.DeploymentManager - Deployable added: C:\Users\sio2\Desktop\rapla-binary-1.8.4\contexts\rapla.xml
-15:58:12.686 359  [main] INFO  o.e.j.webapp.WebInfConfiguration - Extract jar:file:/C:/Users/sio2/Desktop/rapla-binary-1.8.4/webapps/rapla.war!/ to C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-\webapp
-15:58:13.483 1156 [main] INFO  rapla - Init RaplaServlet
-15:58:13.483 1156 [main] INFO  rapla - Passed JNDI Environment rapladatasource=raplafile env_rapladb=org.hsqldb.jdbc.JDBCDataSource@1b1473ab env_raplafile=C:\Users\sio2\Desktop\rapla-binary-1.8.4/data/data.xml
-15:58:13.483 1156 [main] INFO  rapla - Logging via SLF4J API.
-15:58:13.514 1187 [main] INFO  rapla - Configured Locale= fr_FR
-15:58:13.574 1247 [main] INFO  rapla - Config=file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-/webapp/WEB-INF/raplaserver.xconf
-15:58:13.576 1249 [main] INFO  rapla - Rapla.Version=1.8.4
-15:58:13.576 1249 [main] INFO  rapla - Rapla.Build=2015-12-22 11:42
-15:58:13.577 1250 [main] INFO  rapla - Timezone Europe/Paris
-15:58:13.583 1256 [main] INFO  rapla - Java.Version=1.8.0_191
-15:58:13.601 1274 [main] INFO  rapla.server.serverfacade - Using rapladatasource raplafile
-15:58:13.626 1299 [main] INFO  rapla.raplafile - Connecting: file:/C:/Users/sio2/Desktop/rapla-binary-1.8.4/data/data.xml
-15:58:13.655 1328 [main] WARN  rapla.raplafile - Data file not found file:/C:/Users/sio2/Desktop/rapla-binary-1.8.4/data/data.xml creating default system.
-15:58:13.701 1374 [main] INFO  rapla.raplafile - Conflict initialization found 0 conflicts and took 1ms. 
-15:58:13.705 1378 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.weekview.server.WeekViewServerPlugin
-15:58:13.706 1379 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.urlencryption.server.UrlEncryptionServerPlugin
-15:58:13.707 1380 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.timeslot.server.TimeslotServerPlugin
-15:58:13.709 1382 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.tableview.internal.server.TableViewServerPlugin
-15:58:13.710 1383 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.notification.server.NotificationServerPlugin
-15:58:13.712 1385 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.monthview.server.MonthViewServerPlugin
-15:58:13.713 1386 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.mail.server.MailServerPlugin
-15:58:13.714 1387 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.jndi.server.JNDIServerPlugin
-15:58:13.715 1388 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.ical.server.ImportFromICalServerPlugin
-15:58:13.716 1389 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.export2ical.server.Export2iCalServerPlugin
-15:58:13.722 1395 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.eventtimecalculator.server.EventTimeCalculatorServerPlugin
-15:58:13.726 1399 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.dayresource.server.DayResourceViewServerPlugin
-15:58:13.727 1400 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.compactweekview.server.CompactWeekViewServerPlugin
-15:58:13.728 1401 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.autoexport.server.AutoExportServerPlugin
-15:58:13.729 1402 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.archiver.server.ArchiverServerPlugin
-15:58:13.736 1409 [main] INFO  rapla.server - Generating new root key. This can take a while.
-15:58:14.031 1704 [main] INFO  rapla.server - Root key generated
-15:58:14.277 1950 [main] INFO  rapla - Rapla server started
-15:58:14.277 1950 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@65488937 at http://0.0.0.0:8051/
-15:58:14.292 1965 [main] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8051
-15:58:14.878 2551 [qtp863831416-26] WARN  rapla.raplafile - Login failed for admin
-15:58:21.649 9322 [qtp863831416-27] INFO  rapla.server.anonymous.login - Successfull login for 'admin'
-15:58:44.259 31932 [qtp863831416-25] WARN  rapla.raplafile - Login failed for admin
-15:58:55.571 43244 [qtp863831416-27] WARN  rapla.raplafile - Login failed for admin
-15:59:04.001 51674 [qtp863831416-25] INFO  rapla.server.anonymous.login - Successfull login for 'admin'
-15:59:08.938 56611 [Thread-1] INFO  rapla - Shutting down rapla-container
-15:59:08.938 56611 [Thread-1] INFO  rapla - Stopping scheduler thread.
-15:59:08.938 56611 [Thread-1] INFO  rapla - Stopped scheduler thread.
-15:59:09.000 56673 [Thread-1] INFO  rapla.raplafile - Disconnecting: file:/C:/Users/sio2/Desktop/rapla-binary-1.8.4/data/data.xml
-15:59:09.000 56673 [Thread-1] INFO  rapla.server - Storage service stopped
-15:59:09.000 56673 [Thread-1] INFO  o.e.j.server.handler.ContextHandler - stopped o.e.j.w.WebAppContext{/,file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-/webapp/},C:\Users\sio2\Desktop\rapla-binary-1.8.4/webapps/rapla.war
-15:59:13.580 289  [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.17.v20150415
-15:59:13.612 321  [main] INFO  o.e.j.d.p.ScanningAppProvider - Deployment monitor C:\Users\sio2\Desktop\rapla-binary-1.8.4\contexts at interval 1
-15:59:13.617 326  [main] INFO  o.e.jetty.deploy.DeploymentManager - Deployable added: C:\Users\sio2\Desktop\rapla-binary-1.8.4\contexts\rapla.xml
-15:59:13.672 381  [main] INFO  o.e.j.webapp.WebInfConfiguration - Extract jar:file:/C:/Users/sio2/Desktop/rapla-binary-1.8.4/webapps/rapla.war!/ to C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-\webapp
-15:59:14.479 1188 [main] INFO  rapla - Init RaplaServlet
-15:59:14.481 1190 [main] INFO  rapla - Passed JNDI Environment rapladatasource=raplafile env_rapladb=org.hsqldb.jdbc.JDBCDataSource@1b1473ab env_raplafile=C:\Users\sio2\Desktop\rapla-binary-1.8.4/data/data.xml
-15:59:14.488 1197 [main] INFO  rapla - Logging via SLF4J API.
-15:59:14.512 1221 [main] INFO  rapla - Configured Locale= fr_FR
-15:59:14.561 1270 [main] INFO  rapla - Config=file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-/webapp/WEB-INF/raplaserver.xconf
-15:59:14.563 1272 [main] INFO  rapla - Rapla.Version=1.8.4
-15:59:14.564 1273 [main] INFO  rapla - Rapla.Build=2015-12-22 11:42
-15:59:14.564 1273 [main] INFO  rapla - Timezone Europe/Paris
-15:59:14.570 1279 [main] INFO  rapla - Java.Version=1.8.0_191
-15:59:14.589 1298 [main] INFO  rapla.server.serverfacade - Using rapladatasource raplafile
-15:59:14.612 1321 [main] INFO  rapla.raplafile - Connecting: file:/C:/Users/sio2/Desktop/rapla-binary-1.8.4/data/data.xml
-15:59:14.710 1419 [main] INFO  rapla.raplafile - Conflict initialization found 0 conflicts and took 1ms. 
-15:59:14.714 1423 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.weekview.server.WeekViewServerPlugin
-15:59:14.716 1425 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.urlencryption.server.UrlEncryptionServerPlugin
-15:59:14.717 1426 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.timeslot.server.TimeslotServerPlugin
-15:59:14.718 1427 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.tableview.internal.server.TableViewServerPlugin
-15:59:14.720 1429 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.notification.server.NotificationServerPlugin
-15:59:14.721 1430 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.monthview.server.MonthViewServerPlugin
-15:59:14.722 1431 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.mail.server.MailServerPlugin
-15:59:14.723 1432 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.jndi.server.JNDIServerPlugin
-15:59:14.723 1432 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.ical.server.ImportFromICalServerPlugin
-15:59:14.724 1433 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.export2ical.server.Export2iCalServerPlugin
-15:59:14.725 1434 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.eventtimecalculator.server.EventTimeCalculatorServerPlugin
-15:59:14.727 1436 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.dayresource.server.DayResourceViewServerPlugin
-15:59:14.728 1437 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.compactweekview.server.CompactWeekViewServerPlugin
-15:59:14.729 1438 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.autoexport.server.AutoExportServerPlugin
-15:59:14.730 1439 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.archiver.server.ArchiverServerPlugin
-15:59:15.007 1716 [main] INFO  rapla.server.notification - NotificationServer Plugin started
-15:59:15.008 1717 [main] INFO  rapla - Rapla server started
-15:59:15.009 1718 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@808417649 at http://0.0.0.0:8051/
-15:59:15.026 1735 [main] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8051
-15:59:21.611 8320 [qtp863831416-25] INFO  rapla.server.anonymous.login - Successfull login for 'admin'
-15:59:57.137 296  [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.17.v20150415
-15:59:57.187 346  [main] INFO  o.e.j.d.p.ScanningAppProvider - Deployment monitor C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts at interval 1
-15:59:57.192 351  [main] INFO  o.e.jetty.deploy.DeploymentManager - Deployable added: C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts\rapla.xml
-15:59:57.374 533  [main] INFO  o.e.j.webapp.WebInfConfiguration - Extract jar:file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/webapps/rapla.war!/ to C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-\webapp
-15:59:58.130 1289 [main] INFO  rapla - Init RaplaServlet
-15:59:58.131 1290 [main] INFO  rapla - Passed JNDI Environment rapladatasource=raplafile env_rapladb=org.hsqldb.jdbc.JDBCDataSource@1b1473ab env_raplafile=C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4/data/data.xml
-15:59:58.137 1296 [main] INFO  rapla - Logging via SLF4J API.
-15:59:58.162 1321 [main] INFO  rapla - Configured Locale= fr_FR
-15:59:58.210 1369 [main] INFO  rapla - Config=file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-/webapp/WEB-INF/raplaserver.xconf
-15:59:58.212 1371 [main] INFO  rapla - Rapla.Version=1.8.4
-15:59:58.212 1371 [main] INFO  rapla - Rapla.Build=2015-12-22 11:42
-15:59:58.212 1371 [main] INFO  rapla - Timezone Europe/Paris
-15:59:58.218 1377 [main] INFO  rapla - Java.Version=1.8.0_191
-15:59:58.238 1397 [main] INFO  rapla.server.serverfacade - Using rapladatasource raplafile
-15:59:58.261 1420 [main] INFO  rapla.raplafile - Connecting: file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/data/data.xml
-15:59:58.356 1515 [main] INFO  rapla.raplafile - Conflict initialization found 0 conflicts and took 0ms. 
-15:59:58.360 1519 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.weekview.server.WeekViewServerPlugin
-15:59:58.361 1520 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.urlencryption.server.UrlEncryptionServerPlugin
-15:59:58.362 1521 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.timeslot.server.TimeslotServerPlugin
-15:59:58.364 1523 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.tableview.internal.server.TableViewServerPlugin
-15:59:58.365 1524 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.notification.server.NotificationServerPlugin
-15:59:58.366 1525 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.monthview.server.MonthViewServerPlugin
-15:59:58.367 1526 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.mail.server.MailServerPlugin
-15:59:58.368 1527 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.jndi.server.JNDIServerPlugin
-15:59:58.369 1528 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.ical.server.ImportFromICalServerPlugin
-15:59:58.370 1529 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.export2ical.server.Export2iCalServerPlugin
-15:59:58.371 1530 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.eventtimecalculator.server.EventTimeCalculatorServerPlugin
-15:59:58.372 1531 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.dayresource.server.DayResourceViewServerPlugin
-15:59:58.373 1532 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.compactweekview.server.CompactWeekViewServerPlugin
-15:59:58.374 1533 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.autoexport.server.AutoExportServerPlugin
-15:59:58.377 1536 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.archiver.server.ArchiverServerPlugin
-15:59:58.638 1797 [main] INFO  rapla.server.notification - NotificationServer Plugin started
-15:59:58.639 1798 [main] INFO  rapla - Rapla server started
-15:59:58.640 1799 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@808417649 at http://0.0.0.0:8051/
-15:59:58.658 1817 [main] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8051
-16:00:04.458 7617 [qtp863831416-28] INFO  rapla.server.anonymous.login - Successfull login for 'admin'
-16:12:25.758 416  [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.17.v20150415
-16:12:25.789 447  [main] INFO  o.e.j.d.p.ScanningAppProvider - Deployment monitor C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts at interval 1
-16:12:25.789 447  [main] INFO  o.e.jetty.deploy.DeploymentManager - Deployable added: C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts\rapla.xml
-16:12:25.867 525  [main] INFO  o.e.j.webapp.WebInfConfiguration - Extract jar:file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/webapps/rapla.war!/ to C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-\webapp
-16:12:26.764 1422 [main] INFO  rapla - Init RaplaServlet
-16:12:26.765 1423 [main] INFO  rapla - Passed JNDI Environment rapladatasource=raplafile env_rapladb=org.hsqldb.jdbc.JDBCDataSource@1b1473ab env_raplafile=C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4/data/data.xml
-16:12:26.771 1429 [main] INFO  rapla - Logging via SLF4J API.
-16:12:26.797 1455 [main] INFO  rapla - Configured Locale= fr_FR
-16:12:26.845 1503 [main] INFO  rapla - Config=file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-/webapp/WEB-INF/raplaserver.xconf
-16:12:26.846 1504 [main] INFO  rapla - Rapla.Version=1.8.4
-16:12:26.847 1505 [main] INFO  rapla - Rapla.Build=2015-12-22 11:42
-16:12:26.847 1505 [main] INFO  rapla - Timezone Europe/Paris
-16:12:26.854 1512 [main] INFO  rapla - Java.Version=1.8.0_191
-16:12:26.872 1530 [main] INFO  rapla.server.serverfacade - Using rapladatasource raplafile
-16:12:26.895 1553 [main] INFO  rapla.raplafile - Connecting: file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/data/data.xml
-16:12:27.020 1678 [main] INFO  rapla.raplafile - Conflict initialization found 0 conflicts and took 0ms. 
-16:12:27.025 1683 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.weekview.server.WeekViewServerPlugin
-16:12:27.026 1684 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.urlencryption.server.UrlEncryptionServerPlugin
-16:12:27.027 1685 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.timeslot.server.TimeslotServerPlugin
-16:12:27.029 1687 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.tableview.internal.server.TableViewServerPlugin
-16:12:27.030 1688 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.notification.server.NotificationServerPlugin
-16:12:27.031 1689 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.monthview.server.MonthViewServerPlugin
-16:12:27.032 1690 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.mail.server.MailServerPlugin
-16:12:27.033 1691 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.jndi.server.JNDIServerPlugin
-16:12:27.034 1692 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.ical.server.ImportFromICalServerPlugin
-16:12:27.035 1693 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.export2ical.server.Export2iCalServerPlugin
-16:12:27.036 1694 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.eventtimecalculator.server.EventTimeCalculatorServerPlugin
-16:12:27.038 1696 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.dayresource.server.DayResourceViewServerPlugin
-16:12:27.039 1697 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.compactweekview.server.CompactWeekViewServerPlugin
-16:12:27.039 1697 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.autoexport.server.AutoExportServerPlugin
-16:12:27.042 1700 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.archiver.server.ArchiverServerPlugin
-16:12:27.301 1959 [main] INFO  rapla.server.notification - NotificationServer Plugin started
-16:12:27.304 1962 [main] INFO  rapla - Rapla server started
-16:12:27.305 1963 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@808417649 at http://0.0.0.0:8051/
-16:12:27.322 1980 [main] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8051
-16:12:56.194 286  [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.17.v20150415
-16:12:56.234 326  [main] INFO  o.e.j.d.p.ScanningAppProvider - Deployment monitor C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts at interval 1
-16:12:56.259 351  [main] INFO  o.e.jetty.deploy.DeploymentManager - Deployable added: C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts\rapla.xml
-16:12:56.314 406  [main] INFO  o.e.j.webapp.WebInfConfiguration - Extract jar:file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/webapps/rapla.war!/ to C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-\webapp
-16:12:57.071 1163 [main] INFO  rapla - Init RaplaServlet
-16:12:57.071 1163 [main] INFO  rapla - Passed JNDI Environment rapladatasource=raplafile env_rapladb=org.hsqldb.jdbc.JDBCDataSource@1b1473ab env_raplafile=C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4/data/data.xml
-16:12:57.071 1163 [main] INFO  rapla - Logging via SLF4J API.
-16:12:57.102 1194 [main] INFO  rapla - Configured Locale= fr_FR
-16:12:57.149 1241 [main] INFO  rapla - Config=file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-/webapp/WEB-INF/raplaserver.xconf
-16:12:57.149 1241 [main] INFO  rapla - Rapla.Version=1.8.4
-16:12:57.149 1241 [main] INFO  rapla - Rapla.Build=2015-12-22 11:42
-16:12:57.149 1241 [main] INFO  rapla - Timezone Europe/Paris
-16:12:57.149 1241 [main] INFO  rapla - Java.Version=1.8.0_191
-16:12:57.180 1272 [main] INFO  rapla.server.serverfacade - Using rapladatasource raplafile
-16:12:57.196 1288 [main] INFO  rapla.raplafile - Connecting: file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/data/data.xml
-16:12:57.290 1382 [main] INFO  rapla.raplafile - Conflict initialization found 0 conflicts and took 0ms. 
-16:12:57.290 1382 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.weekview.server.WeekViewServerPlugin
-16:12:57.290 1382 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.urlencryption.server.UrlEncryptionServerPlugin
-16:12:57.290 1382 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.timeslot.server.TimeslotServerPlugin
-16:12:57.290 1382 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.tableview.internal.server.TableViewServerPlugin
-16:12:57.290 1382 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.notification.server.NotificationServerPlugin
-16:12:57.290 1382 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.monthview.server.MonthViewServerPlugin
-16:12:57.305 1397 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.mail.server.MailServerPlugin
-16:12:57.305 1397 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.jndi.server.JNDIServerPlugin
-16:12:57.305 1397 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.ical.server.ImportFromICalServerPlugin
-16:12:57.305 1397 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.export2ical.server.Export2iCalServerPlugin
-16:12:57.305 1397 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.eventtimecalculator.server.EventTimeCalculatorServerPlugin
-16:12:57.305 1397 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.dayresource.server.DayResourceViewServerPlugin
-16:12:57.305 1397 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.compactweekview.server.CompactWeekViewServerPlugin
-16:12:57.305 1397 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.autoexport.server.AutoExportServerPlugin
-16:12:57.305 1397 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.archiver.server.ArchiverServerPlugin
-16:12:57.562 1654 [main] INFO  rapla.server.notification - NotificationServer Plugin started
-16:12:57.563 1655 [main] INFO  rapla - Rapla server started
-16:12:57.564 1656 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@808417649 at http://0.0.0.0:8051/
-16:12:57.580 1672 [main] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8051
-16:13:56.960 61052 [qtp863831416-26] WARN  rapla.raplafile - Login failed for admin
-16:13:59.728 63820 [qtp863831416-25] INFO  rapla.server.anonymous.login - Successfull login for 'admin'
+13:13:34.737 523  [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.17.v20150415
+13:13:34.810 596  [main] INFO  o.e.j.d.p.ScanningAppProvider - Deployment monitor C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts at interval 1
+13:13:34.814 600  [main] INFO  o.e.jetty.deploy.DeploymentManager - Deployable added: C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts\rapla.xml
+13:13:34.917 703  [main] INFO  o.e.j.webapp.WebInfConfiguration - Extract jar:file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/webapps/rapla.war!/ to C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-\webapp
+13:13:36.154 1940 [main] INFO  rapla - Init RaplaServlet
+13:13:36.156 1942 [main] INFO  rapla - Passed JNDI Environment rapladatasource=raplafile env_rapladb=org.hsqldb.jdbc.JDBCDataSource@6af93788 env_raplafile=C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4/data/data.xml
+13:13:36.161 1947 [main] INFO  rapla - Logging via SLF4J API.
+13:13:36.170 1956 [main] INFO  rapla - Configured Locale= fr_FR
+13:13:36.233 2019 [main] INFO  rapla - Config=file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-/webapp/WEB-INF/raplaserver.xconf
+13:13:36.233 2019 [main] INFO  rapla - Rapla.Version=1.8.4
+13:13:36.233 2019 [main] INFO  rapla - Rapla.Build=2015-12-22 11:42
+13:13:36.233 2019 [main] INFO  rapla - Timezone Europe/Paris
+13:13:36.233 2019 [main] INFO  rapla - Java.Version=1.8.0_191
+13:13:36.248 2034 [main] INFO  rapla.server.serverfacade - Using rapladatasource raplafile
+13:13:36.280 2066 [main] INFO  rapla.raplafile - Connecting: file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/data/data.xml
+13:13:36.435 2221 [main] INFO  rapla.raplafile - Conflict initialization found 0 conflicts and took 1ms. 
+13:13:36.441 2227 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.weekview.server.WeekViewServerPlugin
+13:13:36.442 2228 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.urlencryption.server.UrlEncryptionServerPlugin
+13:13:36.444 2230 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.timeslot.server.TimeslotServerPlugin
+13:13:36.445 2231 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.tableview.internal.server.TableViewServerPlugin
+13:13:36.446 2232 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.notification.server.NotificationServerPlugin
+13:13:36.447 2233 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.monthview.server.MonthViewServerPlugin
+13:13:36.448 2234 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.mail.server.MailServerPlugin
+13:13:36.449 2235 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.jndi.server.JNDIServerPlugin
+13:13:36.451 2237 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.ical.server.ImportFromICalServerPlugin
+13:13:36.452 2238 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.export2ical.server.Export2iCalServerPlugin
+13:13:36.453 2239 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.eventtimecalculator.server.EventTimeCalculatorServerPlugin
+13:13:36.455 2241 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.dayresource.server.DayResourceViewServerPlugin
+13:13:36.456 2242 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.compactweekview.server.CompactWeekViewServerPlugin
+13:13:36.457 2243 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.autoexport.server.AutoExportServerPlugin
+13:13:36.458 2244 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.archiver.server.ArchiverServerPlugin
+13:13:36.748 2534 [main] INFO  rapla.server.notification - NotificationServer Plugin started
+13:13:36.749 2535 [main] INFO  rapla - Rapla server started
+13:13:36.750 2536 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@1976752685 at http://0.0.0.0:8051/
+13:13:36.768 2554 [main] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8051
+13:14:32.076 57862 [qtp863831416-28] INFO  rapla.server.anonymous.login - Successfull login for 'admin'
