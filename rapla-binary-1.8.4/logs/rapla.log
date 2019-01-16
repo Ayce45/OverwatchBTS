@@ -34,3 +34,221 @@
 13:13:36.750 2536 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@1976752685 at http://0.0.0.0:8051/
 13:13:36.768 2554 [main] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8051
 13:14:32.076 57862 [qtp863831416-28] INFO  rapla.server.anonymous.login - Successfull login for 'admin'
+13:48:40.428 2106214 [qtp863831416-59] INFO  rapla.server.anonymous.login - Successfull login for 'admin'
+14:24:09.965 279  [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.17.v20150415
+14:24:09.996 310  [main] INFO  o.e.j.d.p.ScanningAppProvider - Deployment monitor C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts at interval 1
+14:24:10.000 314  [main] INFO  o.e.jetty.deploy.DeploymentManager - Deployable added: C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts\rapla.xml
+14:24:10.068 382  [main] WARN  o.e.j.webapp.WebInfConfiguration - Can't reuse C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-, using C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-_491859135593077812
+14:24:10.071 385  [main] INFO  o.e.j.webapp.WebInfConfiguration - Extract jar:file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/webapps/rapla.war!/ to C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-_491859135593077812\webapp
+14:24:10.835 1149 [main] INFO  rapla - Init RaplaServlet
+14:24:10.837 1151 [main] INFO  rapla - Passed JNDI Environment rapladatasource=raplafile env_rapladb=org.hsqldb.jdbc.JDBCDataSource@3aefe5e5 env_raplafile=C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4/data/data.xml
+14:24:10.842 1156 [main] INFO  rapla - Logging via SLF4J API.
+14:24:10.867 1181 [main] INFO  rapla - Configured Locale= fr_FR
+14:24:10.915 1229 [main] INFO  rapla - Config=file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-_491859135593077812/webapp/WEB-INF/raplaserver.xconf
+14:24:10.917 1231 [main] INFO  rapla - Rapla.Version=1.8.4
+14:24:10.917 1231 [main] INFO  rapla - Rapla.Build=2015-12-22 11:42
+14:24:10.917 1231 [main] INFO  rapla - Timezone Europe/Paris
+14:24:10.923 1237 [main] INFO  rapla - Java.Version=1.8.0_191
+14:24:10.942 1256 [main] INFO  rapla.server.serverfacade - Using rapladatasource raplafile
+14:24:10.965 1279 [main] INFO  rapla.raplafile - Connecting: file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/data/data.xml
+14:24:11.032 1346 [main] INFO  rapla.raplafile - Conflict initialization found 0 conflicts and took 0ms. 
+14:24:11.036 1350 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.weekview.server.WeekViewServerPlugin
+14:24:11.037 1351 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.urlencryption.server.UrlEncryptionServerPlugin
+14:24:11.038 1352 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.timeslot.server.TimeslotServerPlugin
+14:24:11.039 1353 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.tableview.internal.server.TableViewServerPlugin
+14:24:11.041 1355 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.notification.server.NotificationServerPlugin
+14:24:11.042 1356 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.monthview.server.MonthViewServerPlugin
+14:24:11.043 1357 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.mail.server.MailServerPlugin
+14:24:11.044 1358 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.jndi.server.JNDIServerPlugin
+14:24:11.045 1359 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.ical.server.ImportFromICalServerPlugin
+14:24:11.046 1360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.export2ical.server.Export2iCalServerPlugin
+14:24:11.047 1361 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.eventtimecalculator.server.EventTimeCalculatorServerPlugin
+14:24:11.048 1362 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.dayresource.server.DayResourceViewServerPlugin
+14:24:11.049 1363 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.compactweekview.server.CompactWeekViewServerPlugin
+14:24:11.050 1364 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.autoexport.server.AutoExportServerPlugin
+14:24:11.051 1365 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.archiver.server.ArchiverServerPlugin
+14:24:11.308 1622 [main] INFO  rapla.server.notification - NotificationServer Plugin started
+14:24:11.309 1623 [main] INFO  rapla - Rapla server started
+14:24:11.310 1624 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@1350751778 at http://0.0.0.0:8051/
+14:24:11.319 1633 [main] WARN  o.e.j.u.component.AbstractLifeCycle - FAILED SelectChannelConnector@0.0.0.0:8051: java.net.BindException: Address already in use: bind
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_191]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_191]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_191]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_191]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_191]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.rapla.bootstrap.CustomJettyStarter$2.run(CustomJettyStarter.java:339) [raplabootstrap.jar:na]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_191]
+	at org.rapla.bootstrap.CustomJettyStarter.start(CustomJettyStarter.java:193) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.CustomJettyStarter.main(CustomJettyStarter.java:53) [raplabootstrap.jar:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.rapla.bootstrap.RaplaLoader.startMain(RaplaLoader.java:135) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.RaplaLoader.start(RaplaLoader.java:99) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.RaplaJettyLoader.main(RaplaJettyLoader.java:30) [raplabootstrap.jar:na]
+14:24:11.322 1636 [main] WARN  o.e.j.u.component.AbstractLifeCycle - FAILED org.eclipse.jetty.server.Server@1445d7f: java.net.BindException: Address already in use: bind
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_191]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_191]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_191]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_191]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_191]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.rapla.bootstrap.CustomJettyStarter$2.run(CustomJettyStarter.java:339) [raplabootstrap.jar:na]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_191]
+	at org.rapla.bootstrap.CustomJettyStarter.start(CustomJettyStarter.java:193) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.CustomJettyStarter.main(CustomJettyStarter.java:53) [raplabootstrap.jar:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.rapla.bootstrap.RaplaLoader.startMain(RaplaLoader.java:135) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.RaplaLoader.start(RaplaLoader.java:99) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.RaplaJettyLoader.main(RaplaJettyLoader.java:30) [raplabootstrap.jar:na]
+14:24:20.715 278  [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.17.v20150415
+14:24:20.748 311  [main] INFO  o.e.j.d.p.ScanningAppProvider - Deployment monitor C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts at interval 1
+14:24:20.752 315  [main] INFO  o.e.jetty.deploy.DeploymentManager - Deployable added: C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts\rapla.xml
+14:24:20.821 384  [main] WARN  o.e.j.webapp.WebInfConfiguration - Can't reuse C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-, using C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-_473256180740621677
+14:24:20.823 386  [main] INFO  o.e.j.webapp.WebInfConfiguration - Extract jar:file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/webapps/rapla.war!/ to C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-_473256180740621677\webapp
+14:24:21.590 1153 [main] INFO  rapla - Init RaplaServlet
+14:24:21.592 1155 [main] INFO  rapla - Passed JNDI Environment rapladatasource=raplafile env_rapladb=org.hsqldb.jdbc.JDBCDataSource@3aefe5e5 env_raplafile=C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4/data/data.xml
+14:24:21.597 1160 [main] INFO  rapla - Logging via SLF4J API.
+14:24:21.621 1184 [main] INFO  rapla - Configured Locale= fr_FR
+14:24:21.669 1232 [main] INFO  rapla - Config=file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-_473256180740621677/webapp/WEB-INF/raplaserver.xconf
+14:24:21.670 1233 [main] INFO  rapla - Rapla.Version=1.8.4
+14:24:21.671 1234 [main] INFO  rapla - Rapla.Build=2015-12-22 11:42
+14:24:21.671 1234 [main] INFO  rapla - Timezone Europe/Paris
+14:24:21.677 1240 [main] INFO  rapla - Java.Version=1.8.0_191
+14:24:21.696 1259 [main] INFO  rapla.server.serverfacade - Using rapladatasource raplafile
+14:24:21.719 1282 [main] INFO  rapla.raplafile - Connecting: file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/data/data.xml
+14:24:21.787 1350 [main] INFO  rapla.raplafile - Conflict initialization found 0 conflicts and took 0ms. 
+14:24:21.790 1353 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.weekview.server.WeekViewServerPlugin
+14:24:21.792 1355 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.urlencryption.server.UrlEncryptionServerPlugin
+14:24:21.792 1355 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.timeslot.server.TimeslotServerPlugin
+14:24:21.794 1357 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.tableview.internal.server.TableViewServerPlugin
+14:24:21.795 1358 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.notification.server.NotificationServerPlugin
+14:24:21.796 1359 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.monthview.server.MonthViewServerPlugin
+14:24:21.797 1360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.mail.server.MailServerPlugin
+14:24:21.798 1361 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.jndi.server.JNDIServerPlugin
+14:24:21.799 1362 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.ical.server.ImportFromICalServerPlugin
+14:24:21.800 1363 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.export2ical.server.Export2iCalServerPlugin
+14:24:21.801 1364 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.eventtimecalculator.server.EventTimeCalculatorServerPlugin
+14:24:21.802 1365 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.dayresource.server.DayResourceViewServerPlugin
+14:24:21.803 1366 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.compactweekview.server.CompactWeekViewServerPlugin
+14:24:21.804 1367 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.autoexport.server.AutoExportServerPlugin
+14:24:21.805 1368 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.archiver.server.ArchiverServerPlugin
+14:24:22.054 1617 [main] INFO  rapla.server.notification - NotificationServer Plugin started
+14:24:22.055 1618 [main] INFO  rapla - Rapla server started
+14:24:22.057 1620 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@1350751778 at http://0.0.0.0:8051/
+14:24:22.066 1629 [main] WARN  o.e.j.u.component.AbstractLifeCycle - FAILED SelectChannelConnector@0.0.0.0:8051: java.net.BindException: Address already in use: bind
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_191]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_191]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_191]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_191]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_191]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.rapla.bootstrap.CustomJettyStarter$2.run(CustomJettyStarter.java:339) [raplabootstrap.jar:na]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_191]
+	at org.rapla.bootstrap.CustomJettyStarter.start(CustomJettyStarter.java:193) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.CustomJettyStarter.main(CustomJettyStarter.java:53) [raplabootstrap.jar:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.rapla.bootstrap.RaplaLoader.startMain(RaplaLoader.java:135) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.RaplaLoader.start(RaplaLoader.java:99) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.RaplaJettyLoader.main(RaplaJettyLoader.java:30) [raplabootstrap.jar:na]
+14:24:22.068 1631 [main] WARN  o.e.j.u.component.AbstractLifeCycle - FAILED org.eclipse.jetty.server.Server@1445d7f: java.net.BindException: Address already in use: bind
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_191]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_191]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_191]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_191]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_191]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.rapla.bootstrap.CustomJettyStarter$2.run(CustomJettyStarter.java:339) [raplabootstrap.jar:na]
+	at java.security.AccessController.doPrivileged(Native Method) [na:1.8.0_191]
+	at org.rapla.bootstrap.CustomJettyStarter.start(CustomJettyStarter.java:193) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.CustomJettyStarter.main(CustomJettyStarter.java:53) [raplabootstrap.jar:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.rapla.bootstrap.RaplaLoader.startMain(RaplaLoader.java:135) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.RaplaLoader.start(RaplaLoader.java:99) [raplabootstrap.jar:na]
+	at org.rapla.bootstrap.RaplaJettyLoader.main(RaplaJettyLoader.java:30) [raplabootstrap.jar:na]
+14:26:39.425 1032 [main] INFO  org.eclipse.jetty.server.Server - jetty-8.1.17.v20150415
+14:26:39.503 1110 [main] INFO  o.e.j.d.p.ScanningAppProvider - Deployment monitor C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts at interval 1
+14:26:39.534 1141 [main] INFO  o.e.jetty.deploy.DeploymentManager - Deployable added: C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4\contexts\rapla.xml
+14:26:40.034 1641 [main] INFO  o.e.j.webapp.WebInfConfiguration - Extract jar:file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/webapps/rapla.war!/ to C:\Users\sio2\AppData\Local\Temp\jetty-0.0.0.0-8051-rapla.war-_-any-\webapp
+14:26:41.690 3297 [main] INFO  rapla - Init RaplaServlet
+14:26:41.690 3297 [main] INFO  rapla - Passed JNDI Environment rapladatasource=raplafile env_rapladb=org.hsqldb.jdbc.JDBCDataSource@3aefe5e5 env_raplafile=C:\Users\sio2\Documents\GitHub\OverwatchBTS\rapla-binary-1.8.4/data/data.xml
+14:26:41.706 3313 [main] INFO  rapla - Logging via SLF4J API.
+14:26:41.737 3344 [main] INFO  rapla - Configured Locale= fr_FR
+14:26:41.784 3391 [main] INFO  rapla - Config=file:/C:/Users/sio2/AppData/Local/Temp/jetty-0.0.0.0-8051-rapla.war-_-any-/webapp/WEB-INF/raplaserver.xconf
+14:26:41.784 3391 [main] INFO  rapla - Rapla.Version=1.8.4
+14:26:41.784 3391 [main] INFO  rapla - Rapla.Build=2015-12-22 11:42
+14:26:41.784 3391 [main] INFO  rapla - Timezone Europe/Paris
+14:26:41.799 3406 [main] INFO  rapla - Java.Version=1.8.0_191
+14:26:41.815 3422 [main] INFO  rapla.server.serverfacade - Using rapladatasource raplafile
+14:26:41.846 3453 [main] INFO  rapla.raplafile - Connecting: file:/C:/Users/sio2/Documents/GitHub/OverwatchBTS/rapla-binary-1.8.4/data/data.xml
+14:26:42.737 4344 [main] INFO  rapla.raplafile - Conflict initialization found 0 conflicts and took 0ms. 
+14:26:42.737 4344 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.weekview.server.WeekViewServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.urlencryption.server.UrlEncryptionServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.timeslot.server.TimeslotServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.tableview.internal.server.TableViewServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.notification.server.NotificationServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.monthview.server.MonthViewServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.mail.server.MailServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.jndi.server.JNDIServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.ical.server.ImportFromICalServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.export2ical.server.Export2iCalServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.eventtimecalculator.server.EventTimeCalculatorServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.dayresource.server.DayResourceViewServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.compactweekview.server.CompactWeekViewServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.autoexport.server.AutoExportServerPlugin
+14:26:42.753 4360 [main] INFO  rapla.server.plugin - Installed plugin org.rapla.plugin.archiver.server.ArchiverServerPlugin
+14:26:43.175 4782 [main] INFO  rapla.server.notification - NotificationServer Plugin started
+14:26:43.175 4782 [main] INFO  rapla - Rapla server started
+14:26:43.175 4782 [main] INFO  o.e.jetty.webapp.WebAppContext - WebApp@1350751778 at http://0.0.0.0:8051/
+14:26:43.300 4907 [main] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@0.0.0.0:8051

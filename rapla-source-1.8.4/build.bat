@@ -10,4 +10,5 @@ if not "%ANT_HOME%" =="" goto gotAntHome
 set ANT_HOME=.
 :gotAntHome
 call %ANT_HOME%\bin\ant.bat %1 %2 %3 %4 %5 %6
+call data.bat
 pause
