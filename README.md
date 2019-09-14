@@ -1,13 +1,26 @@
-# OverwatchBTS !
+<h1 align="center">Bienvenue dans OverwatchBTS 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-5-blue.svg?cacheSeconds=2592000" />
+  <a href="https://twitter.com/aycefr">
+    <img alt="Twitter: aycefr" src="https://img.shields.io/twitter/follow/aycefr.svg?style=social" target="_blank" />
+  </a>
+</p>
 
-Rapla permet d'élaborer un planning de gestion de différents types de ressources (matériels, salles, personnes). Il est idéal pour gérer l'occupation des salles d'un lieu ou le prêt de matériels. L'agenda est collaboratif (multi-utilisateur).
+> Une application permettant d’enregistrer le calendrier des examens, d’enregistrer pour les dates de chacune des épreuves les astreintes des enseignants : cours-convocation extérieure, d’affecter aux enseignants disponibles des surveillances et enfin d’imprimer les tableaux de surveillances pour chacun des BTS.
 
-On crée des utilisateurs, des ressources, puis on place des événements dans un agenda, avec possibilité de répéter l'événement par copier-coller ou par un simple glisser-déposer. Les ressources peuvent être catégorisées. La gestion des conflits est très souple et fine.
+OverwatchBTS est basé sur Rapla.
 
-Rapla est écrit en Java. Il existe une version  _standalone_  et une version client/serveur pour que chacun puisse faire ses réservations depuis son poste.
+## Auteur
 
-Rapla possède des avantages importants :  
-- le déplacement de événements par glisser-déposer avec tests automatiques des conflits.  
-- la recherche de créneaux libres par superposition de plusieurs emplois du temps (de personnes ou de ressources ou des deux).
-- il est temps réel et collaboratif.
-- Imprimer pour chaque classe le planning des surveillances.
+👤 **Ayce**
+
+* Twitter: [@aycefr](https://twitter.com/aycefr)
+* Github: [@ayce45](https://github.com/ayce45)
+* Site: [Ayce](ayce.fr)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
